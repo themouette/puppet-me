@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# coloring outputs
+if which grc &>/dev/null; then
+    alias .cl='grc -es --colour=auto'
+    alias configure='.cl ./configure'
+    alias diff='.cl diff'
+    alias make='.cl make'
+    alias gcc='.cl gcc'
+    alias g++='.cl g++'
+    alias ld='.cl ld'
+    alias netstat='.cl netstat'
+    alias ping='.cl ping -c 10'
+    alias traceroute='.cl traceroute'
+fi
+
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F' # ls par default (dossier en 1er + mise en forme de l'heure)
+alias lsfp='ls | sed s#^#$(pwd)/#' # ls avec full PATH
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F' # ls détaille
+alias la='ls -lah --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F' # ls aussi les fichiers cachés .*
+alias lsofnames="lsof | awk '!/^\$/ && /\// { print \$9 }' | sort -u" # noms des fichiers ouverts
+alias grep='grep --color=tty -d skip'
+alias cp="cp -i"  # Confirmer avant d'écraser un fichier existant
+alias df='df -h'  # Tailles lisibles par l'homme
+alias free='free -m'  # voir la taille en MB
+alias vp='vim PKGBUILD' # spécifique Arch
+alias vs='vim SPLITBUILD' # spécifique Arch
+alias ports="lsof -i -n -P" # Voir les process qui utilisent une connection internet
+alias estab="ss -p | grep STA" # Voir seulement les sockets établis 
+alias netstat80="netstat -plan|grep :80|awk {'print $5'}|cut -d: -f 1|sort|uniq -c|sort -nk 1" # nombre de connections sur le port 80 du serveur par IP    
+alias openports="netstat -nape --inet" # Voir les ports ouverts
+alias netpid="netstat -tlnp" # Voir le port qui écoute avec le PID du process associé
+alias appson="netstat -lantp | grep -i stab | awk -F/ '{print $2}' | sort | uniq" # Voir une liste des noms de process qui utilisent une connection
+alias rscp='rsync -aP --no-whole-file --inplace' # rsync cp // a(garder permissions) P(progress bar)
+alias rsmv='rscp --remove-source-files' # rsync mv avec progressbar
+alias calc='python -ic "from math import *; from random import *"' # Une calculatrice en python
+alias servethis="python -m SimpleHTTPServer 8000" # Serveur python sur le port 8000
+if type -P htop >/dev/null; then
+  alias top='htop' # toujours utiliser htop si installé
+fi
+alias reload_bash="source ~/.bashrc" # recharger le ~/.bashrc
+alias ncmpc='ncmpc -c' # Ncurse mpc en couleur
+alias psp='ps u -C' # ps sur un seul process
+if type -P vim >/dev/null; then
+  alias vi=vim # toujours utiliser vim au lieu de vi si installe
+fi
+bind '"\C-l"':"\"clear\r\"" # Ctrl+l vide le terminal

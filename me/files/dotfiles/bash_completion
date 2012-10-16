@@ -1,0 +1,12 @@
+# autocomplete for known hosts
+if [ -f ~/.ssh/known_hosts ]; then
+  SSH_COMPLETE=( $(cat ~/.ssh/known_hosts | \
+  cut -f 1 -d ' ' | \
+  sed -e s/,.*//g | \
+  uniq | \
+  egrep -v [0123456789]) )
+  complete -o default -W "${SSH_COMPLETE[*]}" ssh
+fi
+
+# make completion work with sudo
+complete -cf sudo
