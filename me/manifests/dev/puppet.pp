@@ -1,5 +1,5 @@
 # configure environment for puppet scripts development
-# simply add `include me::dev::pupet` to your manifest
+# simply add `include me::dev::puppet` to your manifest
 
 class me::dev::puppet {
 
