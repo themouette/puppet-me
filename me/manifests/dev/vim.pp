@@ -65,4 +65,30 @@ class me::dev::vim {
     source   => 'git://github.com/tpope/vim-fugitive.git',
     require  => File['pathogen'],
   }
+  # install snipmate
+  vcsrepo { "/home/${me::username}/.vim/bundle/vim-snipmate":
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/garbas/vim-snipmate.git',
+    require  => File['pathogen'],
+  }
+  # and dependencies
+  vcsrepo { "/home/${me::username}/.vim/bundle/tlib_vim":
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/tomtom/tlib_vim.git',
+    require  => File['pathogen'],
+  }
+  vcsrepo { "/home/${me::username}/.vim/bundle/vim-addon-mw-utils":
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
+    require  => File['pathogen'],
+  }
+  vcsrepo { "/home/${me::username}/.vim/bundle/snipmate-snippets":
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/honza/snipmate-snippets.git',
+    require  => File['pathogen'],
+  }
 }
