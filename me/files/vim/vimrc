@@ -125,7 +125,7 @@ set background=dark
 colorscheme solarized
 
 " Powerline
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 " Ctags
 set nocp
@@ -152,9 +152,9 @@ set nofoldenable
 
 " My information
 iab xdate <C-R>=strftime("%d/%m/%Y %H:%M:%S")
-iab xname <C-R> William Durand
-iab xsigp <C-R> William Durand <william.durand1@gmail.com>
-iab xsigw <C-R> William Durand <william.durand1@gmail.com>
+iab xname <C-R> Julien Muetton
+iab xsigp <C-R> Julien Muetton <themouette@gmail.com>
+iab xsigw <C-R> William Durand <themouette@gmail.com>
 
 " snipMate
 let g:snips_author = 'William Durand <william.durand1@gmail.com>'
@@ -220,15 +220,9 @@ au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set ft=cpp
 " reStructuredText
 au! BufRead,BufNewFile *.rst set filetype=rst
 
-" Twig
-au BufNewFile,BufRead *.twig set filetype=twig
-autocmd BufEnter *.html.twig nmap <buffer><leader>c :bf<CR>
-
 " jquery color
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-" behat
-let feature_filetype='behat'
-
 " make
 map <leader>m :make<cr>
+
