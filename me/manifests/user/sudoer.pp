@@ -19,9 +19,9 @@ class me::user::sudoer {
 
   file { "/etc/sudoers.d/${me::username}":
     content => template('me/sudoers.erb'),
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0440',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0440',
     require => [ Class['me::user'], File['sudoer.d'] ]
   }
 }
