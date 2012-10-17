@@ -12,9 +12,9 @@ class me::dev::git {
 
   file { "/home/${me::username}/.gitconfig":
     content => template('me/dotfiles/gitconfig.erb'),
-    owner  => $me::username,
-    group  => $me::username,
-    mode   => '0755',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0755',
     require => Class['me::user'],
   }
 }
