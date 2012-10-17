@@ -30,4 +30,8 @@ class me::misc {
   package { 'jp2a':
     ensure => present,
   }
+
+  package { 'ack-grep':
+    ensure => present,
+  }
 }
