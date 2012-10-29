@@ -150,15 +150,6 @@ set encoding=utf-8
 " disable folding
 set nofoldenable
 
-" My information
-iab xdate <C-R>=strftime("%d/%m/%Y %H:%M:%S")
-iab xname <C-R> Julien Muetton
-iab xsigp <C-R> Julien Muetton <themouette@gmail.com>
-iab xsigw <C-R> William Durand <themouette@gmail.com>
-
-" snipMate
-let g:snips_author = 'William Durand <william.durand1@gmail.com>'
-
 " invisible character
 nmap <leader>l :set list!<CR>
 set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¬,trail:·

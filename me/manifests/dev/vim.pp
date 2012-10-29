@@ -27,50 +27,47 @@ class me::dev::vim {
   # installing pathogen
   # ===================
   # directory structure
-  file { "/home/${me::username}/.vim/bundle":
+  file {
+  "/home/${me::username}/.vim/bundle":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
     mode    => '0644',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ],
-  }
-  file { "/home/${me::username}/.vim/autoload":
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
+  "/home/${me::username}/.vim/autoload":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ],
-  }
-  file { "/home/${me::username}/.vim/ftplugin":
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
+  "/home/${me::username}/.vim/ftplugin":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ],
-  }
-  file { "/home/${me::username}/.vim/plugin":
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
+  "/home/${me::username}/.vim/plugin":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ],
-  }
-  file { "/home/${me::username}/.vim/syntax":
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
+  "/home/${me::username}/.vim/syntax":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ],
-  }
-  file { "/home/${me::username}/.vim/ftdetect":
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
+  "/home/${me::username}/.vim/ftdetect":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ],
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
   }
   # pathogen plugin file
-  file { 'pathogen':
+  file {
+  'pathogen':
     ensure  => present,
     source  => 'puppet:///modules/me/vendor/pathogen/autoload/pathogen.vim',
     name    => "/home/${me::username}/.vim/autoload/pathogen.vim",
@@ -84,7 +81,14 @@ class me::dev::vim {
         File["/home/${me::username}/.vim/plugin"],
         File["/home/${me::username}/.vim/syntax"],
         File["/home/${me::username}/.vim/ftdetect"],
-    ],
+    ];
+  "/home/${me::username}/.vim/autoload/me.vim":
+    ensure  => present,
+    content => template('me/vim/autoload/me.vim.erb')
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require => [ File['pathogen'] ];
   }
 
   # general purpose vim bundles

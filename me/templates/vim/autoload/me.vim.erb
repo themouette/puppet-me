@@ -1,0 +1,9 @@
+" My information
+iab xdate <C-R>=strftime("%d/%m/%Y %H:%M:%S")
+iab xname <C-R> <%= scope.lookupvar('me::fullname') %>
+iab xsigp <C-R> <%= scope.lookupvar('me::fullname') %> <<%= scope.lookupvar('me::mail') %>>
+iab xsigw <C-R> <%= scope.lookupvar('me::fullname') %> <<%= scope.lookupvar('me::mail') %>>
+
+" snipMate
+let g:snips_author = '<%= scope.lookupvar('me::fullname') %> <<%= scope.lookupvar('me::mail') %>>'
+
