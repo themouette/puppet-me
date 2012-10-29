@@ -122,7 +122,7 @@ function set_bash_prompt () {
   truncate_pwd
 
   # Set the bash prompt variable.
-  PS1="${YELLOW}➥ ${CYAN}\D{%a %b %e %H:%M}$(printf "%$((${COLUMNS}-${#PROMPT_SYMBOL}+15))s"  $PROMPT_SYMBOL)\n${COLOR_NONE}[${LIGHT_RED}\u${COLOR_NONE}@${LIGHT_PURPLE}\h${COLOR_NONE}:${LIGHT_BLUE}${newPWD} ${BRANCH}${LIGHT_GRAY}(jobs:${LIGHT_CYAN}\j${LIGHT_GRAY})${COLOR_NONE}]\n${COLOR_NONE}$ "
+  PS1="${YELLOW}➥ ${CYAN}\D{%a %b %e %H:%M}$(printf "%$((${COLUMNS}-${#PROMPT_SYMBOL}+14))s"  $PROMPT_SYMBOL)\n${COLOR_NONE}[${LIGHT_RED}\u${COLOR_NONE}@${LIGHT_PURPLE}\h${COLOR_NONE}:${LIGHT_BLUE}${newPWD} ${BRANCH}${LIGHT_GRAY}(jobs:${LIGHT_CYAN}\j${LIGHT_GRAY})${COLOR_NONE}]\n${COLOR_NONE}$ "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
