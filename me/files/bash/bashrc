@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+# to go further with hitory stuff, see
+# http://unix.stackexchange.com/questions/48111/real-time-history-export-amongst-bash-terminal-windows#answer-48116
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
