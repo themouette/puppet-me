@@ -11,6 +11,12 @@ There is 2 main parts :
 
 It's as easy as `git clone git@server:puppet-me.git ~/puppet/modules`
 
+Then link your .ssh folder under `me/files/ssh`
+
+``` sh
+$ ln -s /home/julien/.ssh/ ~/puppet/modules/me/files/ssh
+```
+
 ## include in your vagrant file
 
 add the following line in your `Vagrantfile`
