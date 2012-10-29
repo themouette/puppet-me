@@ -6,32 +6,26 @@ class me::misc {
   }
 
   # for command output color
-  package { 'grc':
-    ensure => present,
-  }
-
-  package { 'htop':
-    ensure => present,
-  }
-
-  package { 'ncmpc':
-    ensure => present,
-  }
-
-  package { 'wget':
-    ensure => present,
-  }
-
-  package { 'curl':
-    ensure => present,
+  package {
+  'grc':
+    ensure => present;
+  'htop':
+    ensure => present;
+  'ncmpc':
+    ensure => present;
+  'wget':
+    ensure => present;
+  'curl':
+    ensure => present;
+  'elinks':
+    ensure => present;
   }
 
   # to convert image to ascii
-  package { 'jp2a':
-    ensure => present,
-  }
-
-  package { 'ack-grep':
-    ensure => present,
+  package {
+  'jp2a':
+    ensure => present;
+  'ack-grep':
+    ensure => present;
   }
 }
