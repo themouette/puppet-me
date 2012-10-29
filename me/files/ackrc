@@ -1,0 +1,12 @@
+# Always sort the files
+--sort-files
+
+# Always color, even if piping to a another program
+--color
+
+# Use "less -r" as my pager
+# --pager=less -r
+
+# settwig type
+--type-set
+twig=.twig
