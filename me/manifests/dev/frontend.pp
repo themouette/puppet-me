@@ -45,9 +45,19 @@ class me::dev::frontend {
 
   # vim configuration
   file {
+  "/home/${me::username}/.vim/ftplugin/backbone.vim":
+    ensure   => present,
+    source   => 'puppet:///me/vim/ftplugin/backbone.vim',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require  => File['pathogen'];
   "/home/${me::username}/.vim/snippets/backbone.snippets":
     ensure   => present,
     source   => 'puppet:///me/vim/snippets/backbone.snippets',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
     require  => File['pathogen'];
   }
 }
