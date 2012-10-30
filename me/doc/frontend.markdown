@@ -18,6 +18,13 @@ include me::dev::frontend
 
 ## vim integration
 
+### ft: javascript.backbone
+
+Following snippets are available:
+
+    `bbview`: create a new backboone view
+    `bbmodel`: create a new backboone model
+    `bbcollection`: create a new backboone collection
 
 ## binding
 

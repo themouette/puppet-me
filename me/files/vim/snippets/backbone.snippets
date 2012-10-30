@@ -1,0 +1,40 @@
+# bbmodel
+snippet bbmodel
+	define([
+		'underscore',
+		'backbone'
+	], function (_, Backbone) {
+		var ${1:myModel} = ${2:Backbone.Model}.extend({
+			${3}
+		});
+
+		return ${1};
+	});
+
+# bbcollection
+snippet bbcollection
+	define([
+		'underscore',
+		'backbone'
+	], function (_, Backbone) {
+		var ${1:myModel} = ${2:Backbone.Model}.extend({
+			${3}
+		});
+
+		return ${1};
+	});
+
+# bbview
+snippet bbview
+	define([
+		'tpl!${1:path}/${2:myView}.html'
+		'underscore',
+		'backbone'
+	], function (_, Backbone) {
+
+		var ${2} = ${3:Backbone.View}.extend({
+			${4}
+		});
+
+		return ${2};
+	});

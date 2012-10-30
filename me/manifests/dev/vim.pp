@@ -64,6 +64,12 @@ class me::dev::vim {
     group   => $me::username,
     mode    => '0775',
     require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
+  "/home/${me::username}/.vim/snippets":
+    ensure  => directory,
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
   }
   # pathogen plugin file
   file {
@@ -81,10 +87,11 @@ class me::dev::vim {
         File["/home/${me::username}/.vim/plugin"],
         File["/home/${me::username}/.vim/syntax"],
         File["/home/${me::username}/.vim/ftdetect"],
+        File["/home/${me::username}/.vim/snippets"],
     ];
   "/home/${me::username}/.vim/autoload/me.vim":
     ensure  => present,
-    content => template('me/vim/autoload/me.vim.erb')
+    content => template('me/vim/autoload/me.vim.erb'),
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',

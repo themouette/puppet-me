@@ -20,27 +20,34 @@ class me::dev::frontend {
   }
 
   # a bunch of tools required
-  package {'grunt':
+  package {
+  'grunt':
     ensure   => present,
     provider => 'npm',
     require  => [
         Package['npm'], Package['nodejs']
-    ] ,
-  }
-  package {'grunt-requirejs':
+    ];
+  'grunt-requirejs':
     ensure   => present,
     provider => 'npm',
     require  => [
         Package['npm'], Package['nodejs'],
         Package['grunt'],
-    ] ,
-  }
-  package {'grunt-less':
+    ];
+  'grunt-less':
     ensure   => present,
     provider => 'npm',
     require  => [
         Package['npm'], Package['nodejs'],
         Package['grunt'],
-    ] ,
+    ];
+  }
+
+  # vim configuration
+  file {
+  "/home/${me::username}/.vim/snippets/backbone.snippets":
+    ensure   => present,
+    source   => 'puppet:///me/vim/snippets/backbone.snippets',
+    require  => File['pathogen'];
   }
 }
