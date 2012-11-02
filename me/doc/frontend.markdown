@@ -26,5 +26,9 @@ Following snippets are available:
     `bbmodel`: create a new backboone model
     `bbcollection`: create a new backboone collection
 
+### ft: javascript.jquery
+
+Any jquery.*.js file has jquery filetype. Up to now this does nothing.
+
 ## binding
 

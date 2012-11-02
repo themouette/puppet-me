@@ -211,9 +211,6 @@ au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set ft=cpp
 " reStructuredText
 au! BufRead,BufNewFile *.rst set filetype=rst
 
-" jquery color
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
 " make
 map <leader>m :make<cr>
 

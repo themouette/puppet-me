@@ -59,5 +59,12 @@ class me::dev::frontend {
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
+  "/home/${me::username}/.vim/ftdetect/javascript.vim":
+    ensure   => present,
+    source   => 'puppet:///me/vim/ftdetect/javascript.vim',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require  => File['pathogen'];
   }
 }
