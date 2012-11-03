@@ -6,26 +6,46 @@ class me::misc {
   }
 
   # for command output color
-  package {
-  'grc':
-    ensure => present;
-  'htop':
-    ensure => present;
-  'ncmpc':
-    ensure => present;
-  'wget':
-    ensure => present;
-  'curl':
-    ensure => present;
-  'elinks':
-    ensure => present;
+  if !defined(Package['grc']) {
+    package{ 'grc':
+      ensure => present
+    }
+  }
+  if !defined(Package['htop']) {
+    package{ 'htop':
+      ensure => present
+    }
+  }
+  if !defined(Package['ncmpc']) {
+    package{ 'ncmpc':
+      ensure => present
+    }
+  }
+  if !defined(Package['wget']) {
+    package{ 'wget':
+      ensure => present
+    }
+  }
+  if !defined(Package['curl']) {
+    package{ 'curl':
+      ensure => present
+    }
+  }
+  if !defined(Package['elinks']) {
+    package{ 'elinks':
+      ensure => present
+    }
   }
 
   # to convert image to ascii
-  package {
-  'jp2a':
-    ensure => present;
-  'ack-grep':
-    ensure => present;
+  if !defined(Package['jp2a']) {
+    package{ 'jp2a':
+      ensure => present
+    }
+  }
+  if !defined(Package['ack-grep']) {
+    package{ 'ack-grep':
+      ensure => present
+    }
   }
 }

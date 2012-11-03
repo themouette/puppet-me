@@ -1,13 +1,16 @@
 # ensure git client is installed
 class me::dev::git {
-  $packagename = $::operatingsystem ? {
-    Ubuntu => 'git',
-    Debian => 'git-core',
-  }
 
-  package { 'git':
-    ensure => present,
-    name   => $me::dev::git::packagename,
+  if !defined(Package['git']) {
+    $packagename = $::operatingsystem ? {
+      Ubuntu => 'git',
+      Debian => 'git-core',
+    }
+
+    package { 'git':
+      ensure => present,
+      name   => $me::dev::git::packagename,
+    }
   }
 
   file { "/home/${me::username}/.gitconfig":
