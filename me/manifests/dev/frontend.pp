@@ -47,21 +47,21 @@ class me::dev::frontend {
   file {
   "/home/${me::username}/.vim/ftplugin/backbone.vim":
     ensure   => present,
-    source   => 'puppet:///me/vim/ftplugin/backbone.vim',
+    source   => 'puppet:///modules/me/vim/ftplugin/backbone.vim',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
   "/home/${me::username}/.vim/snippets/backbone.snippets":
     ensure   => present,
-    source   => 'puppet:///me/vim/snippets/backbone.snippets',
+    source   => 'puppet:///modules/me/vim/snippets/backbone.snippets',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
   "/home/${me::username}/.vim/ftdetect/javascript.vim":
     ensure   => present,
-    source   => 'puppet:///me/vim/ftdetect/javascript.vim',
+    source   => 'puppet:///modules/me/vim/ftdetect/javascript.vim',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
