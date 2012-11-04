@@ -173,5 +173,13 @@ class me::dev::vim {
     source   => 'git://github.com/Lokaltog/vim-powerline.git',
     require  => File['pathogen'],
   }
+  # syntastic
+  vcsrepo { "/home/${me::username}/.vim/bundle/syntastic":
+    ensure   => present,
+    provider => git,
+    user     => $me::username,
+    source   => 'https://github.com/scrooloose/syntastic.git',
+    require  => File['pathogen'],
+  }
 
 }
