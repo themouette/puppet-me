@@ -1,5 +1,8 @@
 " php specific bindngs
 
+" tag path
+set tags+=vendor.tags
+
 " insert naespaces
 imap <buffer> <Leader>u <C-O>:call PhpInsertUse()<CR>
 map <buffer> <Leader>u :call PhpInsertUse()<CR>

@@ -129,7 +129,7 @@ colorscheme solarized
 
 " Ctags
 set nocp
-set tags=tags,vendor.tags
+set tags=tags
 map <silent><leader><Left> <C-T>
 map <silent><leader><Right> <C-]>
 map <silent><leader><Up> <C-W>]
