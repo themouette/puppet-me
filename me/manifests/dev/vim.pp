@@ -10,6 +10,9 @@ class me::dev::vim {
     ensure => present,
     name   => $me::dev::vim::packagename,
   }
+  package { 'exuberant-ctags':
+    ensure  => present,
+  }
 
   file { "/home/${me::username}/.vimrc":
     source  => 'puppet:///modules/me/vim/vimrc',

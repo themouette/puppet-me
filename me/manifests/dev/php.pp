@@ -127,9 +127,6 @@ class me::dev::php {
   }
 
   # Packages
-  package { 'exuberant-ctags':
-    ensure  => present,
-  }
   package { 'guard':
     ensure   => present,
     provider => 'gem',
