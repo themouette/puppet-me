@@ -84,6 +84,13 @@ class me::dev::frontend {
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
+  "/home/${me::username}/.vim/autoload/javascript.vim":
+    ensure   => present,
+    source   => 'puppet:///modules/me/vim/autoload/javascript.vim',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require  => File['pathogen'];
   }
 
   # install closure linter
