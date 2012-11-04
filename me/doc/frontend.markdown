@@ -15,16 +15,20 @@ include me::dev::frontend
 * grunt: a javascript command line utility
 * grunt-requirejs: compile requirejs scripts
 * grunt-less: compile lesscss scripts
+* jshint: javascript linter
+* jsctags: javascript ctags generator (doctor.js)
 
 ## vim integration
+
+* [`walm/jshint.vim`](https://github.com/walm/jshint.vim) provides jshint integration
 
 ### ft: javascript.backbone
 
 Following snippets are available:
 
-    `bbview`: create a new backboone view
-    `bbmodel`: create a new backboone model
-    `bbcollection`: create a new backboone collection
+    * `bbview`: create a new backboone view
+    * `bbmodel`: create a new backboone model
+    * `bbcollection`: create a new backboone collection
 
 ### ft: javascript.jquery
 
@@ -32,3 +36,5 @@ Any jquery.*.js file has jquery filetype. Up to now this does nothing.
 
 ## binding
 
+* `<C-l>`: use jshint to lint current file
+* `<F8>`: open tagbar
