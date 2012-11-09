@@ -30,6 +30,7 @@ config.vm.provision :puppet, :module_path => "/home/julien/puppet/modules"
 * [puppet](me/doc/puppet.markdown)
 * [php](me/doc/php.markdown)
 * [frontend](me/doc/frontend.markdown)
+* markdown syntax highlight
 
 ## pimp your bash
 

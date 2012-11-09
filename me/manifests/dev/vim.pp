@@ -181,5 +181,13 @@ class me::dev::vim {
     source   => 'https://github.com/scrooloose/syntastic.git',
     require  => File['pathogen'],
   }
+  # syntastic
+  vcsrepo { "/home/${me::username}/.vim/bundle/vim-markdown":
+    ensure   => present,
+    provider => git,
+    user     => $me::username,
+    source   => 'git://github.com/tpope/vim-markdown.git',
+    require  => File['pathogen'],
+  }
 
 }
