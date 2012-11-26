@@ -149,4 +149,13 @@ class me::dev::frontend {
     cwd      => "/home/${me::username}/.vim/bundle/",
     require  => [ File['pathogen'], Package['wget'] ],
   }
+  # lesscss syntax
+  vcsrepo { "/home/${me::username}/.vim/bundle/vim-less":
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/groenewege/vim-less.git',
+    owner    => $me::username,
+    group    => $me::username,
+    require  => File['pathogen'],
+  }
 }
