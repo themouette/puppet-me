@@ -24,8 +24,8 @@ set cursorline                      " Highlight current line.
 
 set incsearch                       " Highlight matches as you type.
 set hlsearch                        " Highlight matches.
-set ignorecase                      " set case insensitivity
-set smartcase                       " unless there's a capital letter
+"set ignorecase                      " set case insensitivity
+"set smartcase                       " unless there's a capital letter
 set wrap                            " Turn on line wrapping.
 set scrolloff=3                     " Show 3 lines of context around the cursor.
 
