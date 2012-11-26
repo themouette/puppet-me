@@ -22,7 +22,16 @@ $ ln -s /home/julien/.ssh/ ~/puppet/modules/me/files/ssh
 add the following line in your `Vagrantfile`
 
 ``` ruby
-config.vm.provision :puppet, :module_path => "/home/julien/puppet/modules"
+  # Run a shell script to initialize the VM
+  config.vm.provision :shell, :path => "/home/julien/puppet/modules/bootstrap.sh"
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file  = "site.pp"
+    puppet.module_path => [
+        "/home/julien/puppet/modules"
+    ]
+  end
 ```
 
 ## available dev environments
