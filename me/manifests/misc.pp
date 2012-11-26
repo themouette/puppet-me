@@ -36,6 +36,11 @@ class me::misc {
       ensure => present
     }
   }
+  if !defined(Package['tmux']) {
+    package{ 'tmux':
+      ensure => present
+    }
+  }
 
   # to convert image to ascii
   if !defined(Package['jp2a']) {

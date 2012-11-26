@@ -45,3 +45,6 @@ if type -P vim >/dev/null; then
   alias vi=vim # toujours utiliser vim au lieu de vi si installe
 fi
 bind '"\C-l"':"\"clear\r\"" # Ctrl+l vide le terminal
+if type -P tmux >/dev/null; then
+  alias tmux='tmux -2' # use tmux with 256 colorscheme
+fi
