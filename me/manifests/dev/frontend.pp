@@ -70,6 +70,13 @@ class me::dev::frontend {
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
+  "/home/${me::username}/.vim/snippets/qunit.snippets":
+    ensure   => present,
+    source   => 'puppet:///modules/me/vim/snippets/qunit.snippets',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require  => File['pathogen'];
   "/home/${me::username}/.vim/ftdetect/javascript.vim":
     ensure   => present,
     source   => 'puppet:///modules/me/vim/ftdetect/javascript.vim',
