@@ -44,6 +44,11 @@ class me::user {
     owner  => $me::username,
     group  => $me::username,
     mode   => '0755';
+  "${me::projecthome}":
+    ensure => directory,
+    owner  => $me::username,
+    group  => $me::username,
+    mode   => '0644';
   }
 
   include me::user::sudoer, me::user::ssh
