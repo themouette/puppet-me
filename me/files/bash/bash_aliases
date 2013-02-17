@@ -48,3 +48,5 @@ bind '"\C-l"':"\"clear\r\"" # Ctrl+l vide le terminal
 if type -P tmux >/dev/null; then
   alias tmux='tmux -2' # use tmux with 256 colorscheme
 fi
+
+alias my_ip="dig +short myip.opendns.com @resolver1.opendns.com"
