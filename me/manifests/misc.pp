@@ -53,4 +53,9 @@ class me::misc {
       ensure => present
     }
   }
+  if !defined(Package['pandoc']) {
+    package{ 'pandoc':
+      ensure => present
+    }
+  }
 }
