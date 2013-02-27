@@ -3,6 +3,7 @@ au BufRead,BufNewFile *.php set ft=php.symfony2
 au BufRead,BufNewFile *Bundle/*.php set ft=php.sf2class
 au BufRead,BufNewFile */config/*.xml set ft=xml.sf2xml
 au BufRead,BufNewFile *schema.xml set ft=xml.propelxml
+au BufRead,BufNewFile *Test.php set ft=php.phpunit
 
 " Propel
 au BufRead,BufNewFile */runtime/lib/*.php set ft=php.propel16

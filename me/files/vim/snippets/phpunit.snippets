@@ -1,0 +1,31 @@
+snippet testCase
+	class ${1:`Snippet_PHPClassNameFromFilename()`} extends ${2:\PHPUnit_Framework_TestCase}
+	{
+		${3}
+	}
+
+snippet test
+	public function test${1}()
+	{
+		${2}
+	}
+
+snippet setUp
+	protected function setUp()
+	{
+		${1}
+	}
+
+snippet tearDown
+	protected function setUp()
+	{
+		${1}
+	}
+
+snippet provider
+	public function ${1}Provider()
+	{
+		return array(
+			array(${2})
+		);
+	}

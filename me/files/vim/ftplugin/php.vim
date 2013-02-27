@@ -3,6 +3,9 @@
 " tag path
 set tags+=vendor.tags
 
+" make launch unittests
+set makeprg=phpunit\ %
+
 " insert naespaces
 imap <buffer> <Leader>u <C-O>:call PhpInsertUse()<CR>
 map <buffer> <Leader>u :call PhpInsertUse()<CR>
@@ -62,7 +65,27 @@ set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
 au FileType php set omnifunc=phpcomplete#CompletePHP
 
 " ease autocomplete
-imap <buffer> <C-p> <C-x><C-o>
+"imap <buffer> <C-p> <C-x><C-o>
 
 " open tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Snippets
+
+if exists('s:did_me_php_snip_helper') || &cp || !exists('loaded_snips')
+    finish
+endif
+let s:did_me_php_snip_helper = 1
+
+
+function! Snippet_PHPClassNameFromFilename(...)
+    let name = expand("%:t:r:r")
+    if len(name) == 0
+        if a:0 == 0
+            let name = 'MyClass'
+        else
+            let name = a:1
+        endif
+    endif
+    return name
+endfunction

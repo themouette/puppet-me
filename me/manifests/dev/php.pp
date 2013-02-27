@@ -125,6 +125,14 @@ class me::dev::php {
     group   => $me::username,
     require => File["/home/${me::username}/.vim/syntax"]
   }
+  # snippets
+  file { "/home/${me::username}/.vim/snippets/phpunit.snippets":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/snippets/phpunit.snippets',
+    owner   => $me::username,
+    group   => $me::username,
+    require => File["/home/${me::username}/.vim/syntax"]
+  }
 
   # Packages
   package { 'guard':

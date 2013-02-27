@@ -6,9 +6,11 @@ class me::dev::vim {
 
   # vim package
   # ===========
-  package { 'vim':
-    ensure => present,
-    name   => $me::dev::vim::packagename,
+  if !defined(Package['vim']) {
+    package { 'vim':
+        ensure => present,
+        name   => $me::dev::vim::packagename,
+    }
   }
   package { 'exuberant-ctags':
     ensure  => present,
@@ -95,6 +97,13 @@ class me::dev::vim {
   "/home/${me::username}/.vim/autoload/me.vim":
     ensure  => present,
     content => template('me/vim/autoload/me.vim.erb'),
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require => [ File['pathogen'] ];
+  "/home/${me::username}/.vim/autoload/snippets.vim":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/autoload/snippets.vim',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
