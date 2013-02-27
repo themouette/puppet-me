@@ -15,14 +15,7 @@ class me::dev::frontend {
     }
   }
 
-  class { 'nodejs':
-    dev_package => $dev
-  }
-  file { '/usr/bin/node':
-    ensure  => symlink,
-    target  => '/usr/bin/nodejs',
-    require => Class['nodejs'],
-  }
+  include nodejs
 
   # a bunch of tools required
   package {
@@ -30,39 +23,32 @@ class me::dev::frontend {
     ensure   => present,
     provider => 'npm',
     require  => [
-        Package['npm'], Package['nodejs']
+        Class['nodejs']
     ];
   'grunt-requirejs':
     ensure   => present,
     provider => 'npm',
     require  => [
-        Package['npm'], Package['nodejs'],
+        Class['nodejs'],
         Package['grunt'],
     ];
   'grunt-less':
     ensure   => present,
     provider => 'npm',
     require  => [
-        Package['npm'], Package['nodejs'],
+        Class['nodejs'],
         Package['grunt'],
     ];
   'jshint':
     ensure   => present,
     provider => 'npm',
     require  => [
-        Package['npm'], Package['nodejs'],
+        Class['nodejs'],
     ];
   }
 
   # vim configuration
   file {
-  "/home/${me::username}/.vim/ftplugin/backbone.vim":
-    ensure   => present,
-    source   => 'puppet:///modules/me/vim/ftplugin/backbone.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0775',
-    require  => File['pathogen'];
   "/home/${me::username}/.vim/snippets/backbone.snippets":
     ensure   => present,
     source   => 'puppet:///modules/me/vim/snippets/backbone.snippets',
