@@ -108,6 +108,13 @@ class me::dev::vim {
     group   => $me::username,
     mode    => '0775',
     require => [ File['pathogen'] ];
+  "/home/${me::username}/.vim/ftplugin/markdown.vim":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/ftplugin/markdown.vim',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
+    require => [ File['pathogen'] ];
   }
 
   # general purpose vim bundles
@@ -190,7 +197,7 @@ class me::dev::vim {
     source   => 'https://github.com/scrooloose/syntastic.git',
     require  => File['pathogen'],
   }
-  # syntastic
+  # vim markdown
   vcsrepo { "/home/${me::username}/.vim/bundle/vim-markdown":
     ensure   => present,
     provider => git,
