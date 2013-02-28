@@ -68,3 +68,16 @@ to start it :
 $ cd /path/to/my/project
 $ guard &> /dev/null &
 ```
+
+### Snippets
+
+#### phpunit
+
+All file ending in `Test.php` will have `phpunit` filetype.
+
+Following snippets are available :
+
+* `testCase`: bootstrap a nes testcase class
+* `test`: create a new test method
+* `setUp` and `tearDown`: new setUp and tearDown functions
+* `provider`: boilerplate for a new dataprovider method

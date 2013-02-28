@@ -36,9 +36,9 @@ add the following line in your `Vagrantfile`
 
 ## available dev environments
 
-* [puppet](me/doc/puppet.markdown)
-* [php](me/doc/php.markdown)
-* [frontend](me/doc/frontend.markdown)
+* [puppet](https://github.com/themouette/puppet-me/blob/master/me/doc/puppet.markdown)
+* [php](https://github.com/themouette/puppet-me/blob/master/me/doc/php.markdown)
+* [frontend](https://github.com/themouette/puppet-me/blob/master/me/doc/frontend.markdown)
 * markdown syntax highlight
 
 ## pimp your bash
