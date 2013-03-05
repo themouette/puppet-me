@@ -13,7 +13,7 @@ class me {
   }
 
   # include user and dev tools
-  include me::user, me::dev
+  include me::user, me::dev, apt
 
   # install fr sources if not already present
   # and dotdeb
