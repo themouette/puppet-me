@@ -25,6 +25,7 @@ class me::dev::git {
 
   # vim integration
   # ===============
+
   # git gutter
   vcsrepo { "/home/${me::username}/.vim/bundle/vim-gitgutter":
     ensure   => present,
