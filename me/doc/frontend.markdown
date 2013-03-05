@@ -17,6 +17,7 @@ include me::dev::frontend
 * grunt-less: compile lesscss scripts
 * jshint: javascript linter
 * jsctags: javascript ctags generator (doctor.js)
+* zencoding: html completer
 
 ## vim integration
 
@@ -38,3 +39,4 @@ Any jquery.*.js file has jquery filetype. Up to now this does nothing.
 
 * `<C-l>`: use jshint to lint current file
 * `<F8>`: open tagbar
+* `<C-e>,`: zend coding completion

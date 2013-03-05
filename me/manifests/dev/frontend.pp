@@ -77,9 +77,9 @@ class me::dev::frontend {
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
-  "/home/${me::username}/.vim/autoload/javascript.vim":
+  "/home/${me::username}/.vim/autoload/frontend.vim":
     ensure   => present,
-    source   => 'puppet:///modules/me/vim/autoload/javascript.vim',
+    source   => 'puppet:///modules/me/vim/autoload/frontend.vim',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
@@ -147,6 +147,15 @@ class me::dev::frontend {
     ensure   => present,
     provider => git,
     source   => 'git://github.com/groenewege/vim-less.git',
+    owner    => $me::username,
+    group    => $me::username,
+    require  => File['pathogen'],
+  }
+  # zen coding
+  vcsrepo { "/home/${me::username}/.vim/bundle/zencoding-vim":
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/mattn/zencoding-vim.git',
     owner    => $me::username,
     group    => $me::username,
     require  => File['pathogen'],

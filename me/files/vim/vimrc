@@ -214,3 +214,5 @@ au! BufRead,BufNewFile *.rst set filetype=rst
 " make
 map <leader>m :make<cr>
 
+" from :h zencoding-customize-keymappings "
+let g:user_zen_expandabbr_key='<C-e>'
