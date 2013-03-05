@@ -40,6 +40,7 @@ add the following line in your `Vagrantfile`
 * [php](https://github.com/themouette/puppet-me/blob/master/me/doc/php.markdown)
 * [frontend](https://github.com/themouette/puppet-me/blob/master/me/doc/frontend.markdown)
 * markdown syntax highlight
+* [git integration](https://github.com/themouette/puppet-me/blob/master/me/doc/git.markdown)
 
 ## pimp your bash
 

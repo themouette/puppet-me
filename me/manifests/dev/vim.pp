@@ -205,5 +205,4 @@ class me::dev::vim {
     source   => 'git://github.com/tpope/vim-markdown.git',
     require  => File['pathogen'],
   }
-
 }
