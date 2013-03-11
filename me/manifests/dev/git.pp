@@ -34,4 +34,19 @@ class me::dev::git {
     source   => 'git://github.com/airblade/vim-gitgutter.git',
     require  => File['pathogen'],
   }
+
+  # repository template
+  # ===================
+
+  file { "/home/${me::username}/.git_template":
+    ensure  => directory, # so make this a directory
+    recurse => true, # enable recursive directory management
+    purge   => true, # purge all unmanaged junk
+    force   => true, # also purge subdirs and links etc.
+    source  => 'puppet:///me/git',
+    mode    => 0755,
+    owner   => $me::username,
+    group   => $me::username,
+    require => Class['me::user'],
+  }
 }

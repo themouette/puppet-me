@@ -15,4 +15,5 @@ This will require vim default configutation.
 ## installed tools
 
 * [Vim gutter](https://github.com/airblade/vim-gitgutter)
+* Git template with hooks
 
