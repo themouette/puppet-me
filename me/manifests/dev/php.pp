@@ -17,12 +17,12 @@ class me::dev::php {
   # related filetypes
   # =================
   # php.vim: bind extra filetypes
-  file { "/home/${me::username}/.vim/autoload/php.vim":
+  file { "/home/${me::username}/.vim/plugin/php.vim":
     ensure  => present,
-    source  => 'puppet:///modules/me/vim/autoload/php.vim',
+    source  => 'puppet:///modules/me/vim/plugin/php.vim',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/autoload"]
+    require => File["/home/${me::username}/.vim/plugin"]
   }
   file { "/home/${me::username}/.vim/ftdetect/php.vim":
     ensure  => present,

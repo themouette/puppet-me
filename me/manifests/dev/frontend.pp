@@ -77,9 +77,9 @@ class me::dev::frontend {
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
-  "/home/${me::username}/.vim/autoload/frontend.vim":
+  "/home/${me::username}/.vim/plugin/frontend.vim":
     ensure   => present,
-    source   => 'puppet:///modules/me/vim/autoload/frontend.vim',
+    source   => 'puppet:///modules/me/vim/plugin/frontend.vim',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
