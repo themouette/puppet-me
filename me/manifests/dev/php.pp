@@ -131,7 +131,14 @@ class me::dev::php {
     source  => 'puppet:///modules/me/vim/snippets/phpunit.snippets',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/syntax"]
+    require => File["/home/${me::username}/.vim/snippets"]
+  }
+  file { "/home/${me::username}/.vim/snippets/sf2class.snippets":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/snippets/sf2class.snippets',
+    owner   => $me::username,
+    group   => $me::username,
+    require => File["/home/${me::username}/.vim/snippets"]
   }
 
   # Packages

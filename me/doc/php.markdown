@@ -77,7 +77,11 @@ All file ending in `Test.php` will have `phpunit` filetype.
 
 Following snippets are available :
 
-* `testCase`: bootstrap a nes testcase class
+* `testCase`: bootstrap a new testcase class
 * `test`: create a new test method
 * `setUp` and `tearDown`: new setUp and tearDown functions
 * `provider`: boilerplate for a new dataprovider method
+
+#### sf2class
+
+* `action`: bootstrap a new Action method.
