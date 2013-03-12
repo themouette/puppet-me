@@ -88,6 +88,14 @@ class me::dev::vim {
     group   => $me::username,
     mode    => '0775',
     require => [ File['pathogen'] ];
+  "/home/${me::username}/.vim/python":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/python',
+    owner   => $me::username,
+    group   => $me::username,
+    recurse => true,
+    mode    => '0775',
+    require => [ File['pathogen'] ];
   }
 
   # general purpose vim bundles
