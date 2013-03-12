@@ -71,6 +71,15 @@ $ guard &> /dev/null &
 
 ### Snippets
 
+#### php
+
+* `ns`: create a namespaced class
+* `fun`: a class method with arguments autodocumentation
+* `puf`: a public method with arguments autodocumentation
+* `prof`: a protected method with arguments autodocumentation
+* `prif`: a private method with arguments autodocumentation
+* `fn`: a function with arguments autodocumentation
+
 #### phpunit
 
 All file ending in `Test.php` will have `phpunit` filetype.

@@ -21,7 +21,38 @@ class ${2:`!p snip.rv=php.classname(snip)`}${3: extends ${4:class}}
 }
 endsnippet
 
-snippet pub "Public method" b
+global !p
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+
+    if len(opts) == 1:
+        return opts[0]
+
+    return "(" + "|".join(opts) + ")"
+endglobal
+
+snippet fn "A function with arguments doc" b
+/**
+ * `!p snip.rv=php.parse_args(t[2], snip)`
+ */
+function ${1}(${2})
+{
+    ${3://code}
+}
+endsnippet
+
+snippet fun "A method with arguments doc" b
+/**
+ * `!p snip.rv=php.parse_args(t[3], snip)`
+ */
+$1`!p snip.rv=complete(t[1], ['public', 'private', 'protected'])` function ${2}(${3})
+{
+    ${4://code}
+}
+endsnippet
+
+snippet puf "A public method with arguments doc" b
 /**
  * `!p snip.rv=php.parse_args(t[2], snip)`
  */
@@ -30,3 +61,24 @@ public function ${1}(${2})
     ${3://code}
 }
 endsnippet
+
+snippet prof "A protected method with arguments doc" b
+/**
+ * `!p snip.rv=php.parse_args(t[2], snip)`
+ */
+protected function ${1}(${2})
+{
+    ${3://code}
+}
+endsnippet
+
+snippet prif "A public method with arguments doc" b
+/**
+ * `!p snip.rv=php.parse_args(t[2], snip)`
+ */
+private function ${1}(${2})
+{
+    ${3://code}
+}
+endsnippet
+
