@@ -1,0 +1,46 @@
+global !p
+from helpers import php
+endglobal
+
+snippet testCase "New PhpUnit testCase" b
+<?php
+namespace ${3:`!p snip.rv=php.namespace(path)`};
+
+class ${1:`!p snip.rv=php.classname(snip)`} extends ${2:\PHPUnit_Framework_TestCase}
+{
+    ${4}
+}
+endsnippet
+
+snippet test "New PhpUnit test" b
+public function test${1}()
+{
+    ${2}
+}
+endsnippet
+
+snippet setUp "New setUp method" b
+protected function setUp()
+{
+    parent::setUp();
+    ${1}
+}
+endsnippet
+
+snippet tearDown "New tearDown method" b
+protected function tearDown()
+{
+    parent::tearDown();
+    ${1}
+}
+endsnippet
+
+snippet provider "New test provider" b
+public function ${1}Provider()
+{
+    return array(
+        array(${2})
+    );
+}
+endsnippet
+

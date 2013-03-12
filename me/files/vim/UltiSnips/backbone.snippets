@@ -1,0 +1,62 @@
+global !p
+def js_filename(snip):
+    name = snip.fn[:1].capitalize() + snip.fn[1:]
+    return name.split('.')[0]
+endglobal
+
+snippet bbmodel "Create a new Backbone model" b
+	define([
+		'underscore',
+		'backbone'
+	], function (_, Backbone) {
+		var ${1:`!p snip.rv=js_filename(snip)`} = ${2:Backbone.Model}.extend({
+			${3}
+		});
+
+		return $1;
+	});
+endsnippet
+
+snippet bbcollection "Create a new Backbone collection" b
+define([
+    'underscore',
+    'backbone'
+], function (_, Backbone) {
+    var ${1:`!p snip.rv=js_filename(snip)`} = ${2:Backbone.Collection}.extend({
+        ${3}
+    });
+
+    return $1;
+});
+endsnippet
+
+snippet bbview "Create a new Backbone view" b
+define([
+    'tpl!${2:templates}/$1.html',
+    'underscore',
+    'backbone'
+], function (tpl, _, Backbone) {
+
+    var ${1:`!p snip.rv=js_filename(snip)`} = ${3:Backbone.View}.extend({
+        ${4}
+    });
+
+    return $1;
+});
+endsnippet
+
+snippet init "new initialize method" b
+initialize: function ($1) {
+    $2
+}
+endsnippet
+
+snippet render "Render function" b
+render: function () {
+    this.$el.html(${1:tpl}(this.getViewData()));
+    return this;
+},
+getViewData: function () {
+    return this.model.toJSON();
+}
+endsnippet

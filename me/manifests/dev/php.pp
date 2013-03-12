@@ -116,14 +116,14 @@ class me::dev::php {
     source  => 'puppet:///modules/me/vim/plugin/php-debugger.py',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/syntax"]
+    require  => File['pathogen'];
   }
   file { "/home/${me::username}/.vim/plugin/php-debugger.vim":
     ensure  => present,
     source  => 'puppet:///modules/me/vim/plugin/php-debugger.vim',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/syntax"]
+    require  => File['pathogen'];
   }
   # snippets
   file { "/home/${me::username}/.vim/UltiSnips/php.snippets":
@@ -131,21 +131,21 @@ class me::dev::php {
     source  => 'puppet:///modules/me/vim/UltiSnips/php.snippets',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/UltiSnips"]
+    require  => File['pathogen'];
   }
-  file { "/home/${me::username}/.vim/snippets/phpunit.snippets":
+  file { "/home/${me::username}/.vim/UltiSnips/phpunit.snippets":
     ensure  => present,
-    source  => 'puppet:///modules/me/vim/snippets/phpunit.snippets',
+    source  => 'puppet:///modules/me/vim/UltiSnips/phpunit.snippets',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/snippets"]
+    require  => File['pathogen'];
   }
-  file { "/home/${me::username}/.vim/snippets/sf2class.snippets":
+  file { "/home/${me::username}/.vim/UltiSnips/sf2class.snippets":
     ensure  => present,
-    source  => 'puppet:///modules/me/vim/snippets/sf2class.snippets',
+    source  => 'puppet:///modules/me/vim/UltiSnips/sf2class.snippets',
     owner   => $me::username,
     group   => $me::username,
-    require => File["/home/${me::username}/.vim/snippets"]
+    require  => File['pathogen'];
   }
 
   # Packages

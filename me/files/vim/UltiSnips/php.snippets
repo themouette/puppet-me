@@ -1,35 +1,31 @@
 global !p
-import re
-
-def php_namespace(realpath):
-    path = re.split('/|\\\\', realpath);
-    path.pop()  # remove filename
-    parts = []
-    while len(path):
-        part = path.pop()
-        if ['lib', 'src'].count(part):
-            break;
-        parts.insert(0, part)
-    return '\\'.join(parts)
-endglobal
-
-global !p
-def php_filename(snip):
-    return snip.fn.capitalize().split('.')[0]
+from helpers import php
 endglobal
 
 snippet ns "New php class" b
-namespace ${2:`!p snip.rv=php_namespace(path)`};
+namespace ${2:`!p snip.rv=php.namespace(path)`};
 
 /**
  * class $1
  */
-class ${1:`!p snip.rv=php_filename(snip)`}
+class ${1:`!p snip.rv=php.classname(snip)`}${2: extends }
 {
-    public function ${2:__construct}(${3:$options})
+    /**
+     * `!p snip.rv=php.parse_args(t[4], snip)`
+     */
+    public function ${3:__construct}(${4:$options})
     {
-        ${4:// code}
+        ${5:// code}
     }
 }
 endsnippet
 
+snippet pub "Public method" b
+/**
+ * `!p snip.rv=php.parse_args(t[2], snip)`
+ */
+public function ${1}(${2})
+{
+    ${3://code}
+}
+endsnippet

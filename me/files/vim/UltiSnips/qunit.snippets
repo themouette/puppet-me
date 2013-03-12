@@ -1,0 +1,14 @@
+snippet test "Qunit test" b
+test("it should ${1:description}", ${2:expected , }function () {
+    ${3:}
+});
+endsnippet
+
+snippet trow "QUnit throw test" b
+throws( // I should throw a $1
+    function () {
+        ${2:}
+    },
+    "${1:Error}"
+);
+endsnippet

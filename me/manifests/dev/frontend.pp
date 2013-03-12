@@ -49,16 +49,16 @@ class me::dev::frontend {
 
   # vim configuration
   file {
-  "/home/${me::username}/.vim/snippets/backbone.snippets":
+  "/home/${me::username}/.vim/UltiSnips/backbone.snippets":
     ensure   => present,
-    source   => 'puppet:///modules/me/vim/snippets/backbone.snippets',
+    source   => 'puppet:///modules/me/vim/UltiSnips/backbone.snippets',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
-  "/home/${me::username}/.vim/snippets/qunit.snippets":
+  "/home/${me::username}/.vim/UltiSnips/qunit.snippets":
     ensure   => present,
-    source   => 'puppet:///modules/me/vim/snippets/qunit.snippets',
+    source   => 'puppet:///modules/me/vim/UltiSnips/qunit.snippets',
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
