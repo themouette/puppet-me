@@ -75,6 +75,7 @@ class me::user::ssh {
   file{ "/home/${me::username}/.ssh/known_hosts":
     ensure  => present,
     source  => 'puppet:///modules/me/ssh/known_hosts',
+    replace => no,
     links   => follow,
     owner   => $me::username,
     group   => $me::username,
