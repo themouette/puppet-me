@@ -41,7 +41,25 @@ def format_arg(signature, paramname, default):
 if __name__ == '__main__':
     import unittest
 
-    class TestPhpSnippets(unittest.TestCase):
+    class TestNamespace(unittest.TestCase):
+
+        def setUp(self):
+            self.snip = Snip()
+
+        def test_empty(self):
+            self.assertEquals('', namespace(''))
+            # TODO: change this behavior
+            self.assertEquals('\\home\\julien\\workspace\\Foo', namespace('/home/julien/workspace/Foo/bar.php'))
+
+        def test_src(self):
+            self.assertEquals('Foo', namespace('/home/julien/workspace/src/Foo/bar.php'))
+            self.assertEquals('Acme\\Bundle', namespace('/home/julien/workspace/src/Acme/Bundle/bar.php'))
+
+        def test_lib(self):
+            self.assertEquals('Foo', namespace('/home/julien/workspace/lib/Foo/bar.php'))
+            self.assertEquals('Acme\\Bundle', namespace('/home/julien/workspace/lib/Acme/Bundle/bar.php'))
+
+    class TestParseArgs(unittest.TestCase):
 
         def setUp(self):
             self.snip = Snip()

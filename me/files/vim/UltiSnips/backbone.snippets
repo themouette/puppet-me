@@ -1,20 +1,18 @@
 global !p
-def js_filename(snip):
-    name = snip.fn[:1].capitalize() + snip.fn[1:]
-    return name.split('.')[0]
+from helpers import javascript as js
 endglobal
 
 snippet bbmodel "Create a new Backbone model" b
-	define([
-		'underscore',
-		'backbone'
-	], function (_, Backbone) {
-		var ${1:`!p snip.rv=js_filename(snip)`} = ${2:Backbone.Model}.extend({
-			${3}
-		});
+define([
+    'underscore',
+    'backbone'
+], function (_, Backbone) {
+    var ${1:`!p snip.rv=js.classname(snip)`} = ${2:Backbone.Model}.extend({
+        ${3}
+    });
 
-		return $1;
-	});
+    return $1;
+});
 endsnippet
 
 snippet bbcollection "Create a new Backbone collection" b
@@ -22,7 +20,7 @@ define([
     'underscore',
     'backbone'
 ], function (_, Backbone) {
-    var ${1:`!p snip.rv=js_filename(snip)`} = ${2:Backbone.Collection}.extend({
+    var ${1:`!p snip.rv=js.classname(snip)`} = ${2:Backbone.Collection}.extend({
         ${3}
     });
 
@@ -37,7 +35,7 @@ define([
     'backbone'
 ], function (tpl, _, Backbone) {
 
-    var ${1:`!p snip.rv=js_filename(snip)`} = ${3:Backbone.View}.extend({
+    var ${1:`!p snip.rv=js.classname(snip)`} = ${3:Backbone.View}.extend({
         ${4}
     });
 
