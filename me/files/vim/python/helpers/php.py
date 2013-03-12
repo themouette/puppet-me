@@ -28,7 +28,7 @@ def parse_args(args, snip):
             param = format_arg(
                             groups['sig'] if 'sig' in groups and groups['sig'] else 'Mixed',
                             groups['param'],
-                            groups['default'] if 'default' in groups else '')
+                            groups['default'] if 'default' in groups and groups['default'] else '')
 
             ret.append(param)
 
