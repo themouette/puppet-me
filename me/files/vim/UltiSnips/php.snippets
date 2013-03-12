@@ -1,0 +1,35 @@
+global !p
+import re
+
+def php_namespace(realpath):
+    path = re.split('/|\\\\', realpath);
+    path.pop()  # remove filename
+    parts = []
+    while len(path):
+        part = path.pop()
+        if ['lib', 'src'].count(part):
+            break;
+        parts.insert(0, part)
+    return '\\'.join(parts)
+endglobal
+
+global !p
+def php_filename(snip):
+    return snip.fn.capitalize().split('.')[0]
+endglobal
+
+snippet ns "New php class" b
+namespace ${2:`!p snip.rv=php_namespace(path)`};
+
+/**
+ * class $1
+ */
+class ${1:`!p snip.rv=php_filename(snip)`}
+{
+    public function ${2:__construct}(${3:$options})
+    {
+        ${4:// code}
+    }
+}
+endsnippet
+

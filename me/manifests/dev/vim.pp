@@ -33,43 +33,15 @@ class me::dev::vim {
   # ===================
   # directory structure
   file {
-  "/home/${me::username}/.vim/bundle":
-    ensure  => directory,
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0644',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
-  "/home/${me::username}/.vim/autoload":
-    ensure  => directory,
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
-  "/home/${me::username}/.vim/ftplugin":
-    ensure  => directory,
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
-  "/home/${me::username}/.vim/plugin":
-    ensure  => directory,
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
-  "/home/${me::username}/.vim/syntax":
-    ensure  => directory,
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
-  "/home/${me::username}/.vim/ftdetect":
-    ensure  => directory,
-    owner   => $me::username,
-    group   => $me::username,
-    mode    => '0775',
-    require => [ Package['vim'], File["/home/${me::username}/.vim"] ];
-  "/home/${me::username}/.vim/snippets":
+  ["/home/${me::username}/.vim/bundle",
+  "/home/${me::username}/.vim/autoload",
+  "/home/${me::username}/.vim/ftplugin",
+  "/home/${me::username}/.vim/plugin",
+  "/home/${me::username}/.vim/syntax",
+  "/home/${me::username}/.vim/ftdetect",
+  "/home/${me::username}/.vim/snippets",
+  "/home/${me::username}/.vim/UltiSnips",
+    ]:
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
@@ -93,6 +65,7 @@ class me::dev::vim {
         File["/home/${me::username}/.vim/syntax"],
         File["/home/${me::username}/.vim/ftdetect"],
         File["/home/${me::username}/.vim/snippets"],
+        File["/home/${me::username}/.vim/UltiSnips"],
     ];
   "/home/${me::username}/.vim/autoload/me.vim":
     ensure  => present,
@@ -135,34 +108,12 @@ class me::dev::vim {
     source   => 'git://github.com/tpope/vim-fugitive.git',
     require  => File['pathogen'],
   }
-  # install snipmate
-  vcsrepo { "/home/${me::username}/.vim/bundle/vim-snipmate":
+  # UltiSnips
+  vcsrepo { "/home/${me::username}/.vim/bundle/ultisnips":
     ensure   => present,
     provider => git,
     user     => $me::username,
-    source   => 'git://github.com/garbas/vim-snipmate.git',
-    require  => File['pathogen'],
-  }
-  # and dependencies
-  vcsrepo { "/home/${me::username}/.vim/bundle/tlib_vim":
-    ensure   => present,
-    provider => git,
-    user     => $me::username,
-    source   => 'https://github.com/tomtom/tlib_vim.git',
-    require  => File['pathogen'],
-  }
-  vcsrepo { "/home/${me::username}/.vim/bundle/vim-addon-mw-utils":
-    ensure   => present,
-    provider => git,
-    user     => $me::username,
-    source   => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
-    require  => File['pathogen'],
-  }
-  vcsrepo { "/home/${me::username}/.vim/bundle/snipmate-snippets":
-    ensure   => present,
-    provider => git,
-    user     => $me::username,
-    source   => 'https://github.com/honza/snipmate-snippets.git',
+    source   => 'git://github.com/SirVer/ultisnips.git',
     require  => File['pathogen'],
   }
   # TagBar

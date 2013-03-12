@@ -126,6 +126,13 @@ class me::dev::php {
     require => File["/home/${me::username}/.vim/syntax"]
   }
   # snippets
+  file { "/home/${me::username}/.vim/UltiSnips/php.snippets":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/UltiSnips/php.snippets',
+    owner   => $me::username,
+    group   => $me::username,
+    require => File["/home/${me::username}/.vim/UltiSnips"]
+  }
   file { "/home/${me::username}/.vim/snippets/phpunit.snippets":
     ensure  => present,
     source  => 'puppet:///modules/me/vim/snippets/phpunit.snippets',

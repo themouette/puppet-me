@@ -43,7 +43,7 @@ class me::dev::git {
     recurse => true, # enable recursive directory management
     purge   => true, # purge all unmanaged junk
     force   => true, # also purge subdirs and links etc.
-    source  => 'puppet:///me/git',
+    source  => 'puppet:///modules/me/git',
     mode    => 0755,
     owner   => $me::username,
     group   => $me::username,
