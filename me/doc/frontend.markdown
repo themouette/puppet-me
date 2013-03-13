@@ -23,6 +23,13 @@ include me::dev::frontend
 
 * [`walm/jshint.vim`](https://github.com/walm/jshint.vim) provides jshint integration
 
+_Add a specific ft for all files in your project_
+
+```!puppet
+au BufNewFile,BufRead */PROJECT_HOME/*.js set filetype=javascript.backbone
+au BufNewFile,BufRead */PROJECT_HOME/**/tests/*.js set filetype=javascript.qunit
+```
+
 ### ft: javascript.backbone
 
 Following snippets are available:
