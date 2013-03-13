@@ -46,3 +46,8 @@ add the following line in your `Vagrantfile`
 
 * `$ fonctions` list all included extra functions
 * `$ bashtips` list some tips for bash
+
+## Vim binding
+
+* `<F2>`: Toggle paste mode
+* `<F3>`: Toggle git gutter

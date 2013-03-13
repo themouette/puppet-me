@@ -15,5 +15,5 @@ This will require vim default configutation.
 ## installed tools
 
 * [Vim gutter](https://github.com/airblade/vim-gitgutter)
-* Git template with hooks
-
+* Git template with hooks. Tempaltes are available in `~/.git_templates` dir
+    and are used by default.
