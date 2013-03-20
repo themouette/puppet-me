@@ -58,4 +58,8 @@ class me::misc {
       ensure => present
     }
   }
+  package {'localtunnel':
+    ensure   => present,
+    provider => 'gem'
+  }
 }

@@ -51,3 +51,13 @@ add the following line in your `Vagrantfile`
 
 * `<F2>`: Toggle paste mode
 * `<F3>`: Toggle git gutter
+
+## Installed packages
+
+* [localtunnel](http://progrium.com/localtunnel/)
+* htop
+* wget
+* curl
+* ack-grep
+* pandoc
+
