@@ -67,9 +67,9 @@ class me::dev::vim {
         File["/home/${me::username}/.vim/snippets"],
         File["/home/${me::username}/.vim/UltiSnips"],
     ];
-  "/home/${me::username}/.vim/autoload/me.vim":
+  "/home/${me::username}/.vim/plugin/me.vim":
     ensure  => present,
-    content => template('me/vim/autoload/me.vim.erb'),
+    content => template('me/vim/plugin/me.vim.erb'),
     owner   => $me::username,
     group   => $me::username,
     mode    => '0775',
