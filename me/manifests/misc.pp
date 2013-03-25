@@ -40,6 +40,13 @@ class me::misc {
     package{ 'tmux':
       ensure => present
     }
+    file {"/home/${me::username}/.tmux.conf":
+        ensure => present,
+        source  => 'puppet:///modules/me/dotfiles/tmux.conf',
+        owner   => $me::username,
+        group   => $me::username,
+        mode    => '0775',
+    }
   }
 
   # to convert image to ascii
