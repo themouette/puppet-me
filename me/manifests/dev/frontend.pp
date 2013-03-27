@@ -19,26 +19,26 @@ class me::dev::frontend {
 
   # a bunch of tools required
   package {
-  'grunt':
-    ensure   => present,
-    provider => 'npm',
-    require  => [
-        Class['nodejs']
-    ];
-  'grunt-requirejs':
-    ensure   => present,
-    provider => 'npm',
-    require  => [
-        Class['nodejs'],
-        Package['grunt'],
-    ];
-  'grunt-less':
-    ensure   => present,
-    provider => 'npm',
-    require  => [
-        Class['nodejs'],
-        Package['grunt'],
-    ];
+#  'grunt-cli':
+#    ensure   => present,
+#    provider => 'npm',
+#    require  => [
+#        Class['nodejs']
+#    ];
+#  'grunt-requirejs':
+#    ensure   => present,
+#    provider => 'npm',
+#    require  => [
+#        Class['nodejs'],
+#        Package['grunt'],
+#    ];
+#  'grunt-less':
+#    ensure   => present,
+#    provider => 'npm',
+#    require  => [
+#        Class['nodejs'],
+#        Package['grunt'],
+#    ];
   'jshint':
     ensure   => present,
     provider => 'npm',

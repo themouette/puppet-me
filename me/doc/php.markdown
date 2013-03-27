@@ -90,6 +90,7 @@ Following snippets are available :
 * `test`: create a new test method
 * `setUp` and `tearDown`: new setUp and tearDown functions
 * `provider`: boilerplate for a new dataprovider method
+* `expects`: boilerplate for a new mocked method
 
 #### sf2class
 

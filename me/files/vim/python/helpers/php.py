@@ -1,5 +1,14 @@
 import re
 
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+
+    if len(opts) == 1:
+        return opts[0]
+
+    return "(" + "|".join(opts) + ")"
+
 def namespace(realpath):
     path = re.split('/|\\\\', realpath);
     path.pop()  # remove filename

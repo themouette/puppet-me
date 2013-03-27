@@ -21,17 +21,6 @@ class ${2:`!p snip.rv=php.classname(snip)`}${3: extends ${4:class}}
 }
 endsnippet
 
-global !p
-def complete(t, opts):
-    if t:
-        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
-
-    if len(opts) == 1:
-        return opts[0]
-
-    return "(" + "|".join(opts) + ")"
-endglobal
-
 snippet fn "A function with arguments doc" b
 /**
  * `!p snip.rv=php.parse_args(t[2], snip)`
@@ -46,7 +35,7 @@ snippet fun "A method with arguments doc" b
 /**
  * `!p snip.rv=php.parse_args(t[3], snip)`
  */
-$1`!p snip.rv=complete(t[1], ['public', 'private', 'protected'])` function ${2}(${3})
+$1`!p snip.rv=php.complete(t[1], ['public', 'private', 'protected'])` function ${2}(${3})
 {
     ${4://code}
 }

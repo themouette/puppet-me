@@ -44,3 +44,8 @@ public function ${1}Provider()
 }
 endsnippet
 
+snippet expects "Mock proxy method" b
+$${1:mock}->expects($this->$2`!p snip.rv=php.complete(t[2], ['any()', 'never()', 'once()', 'exactly($count)', 'at($index)'])`)
+    ->method('$3')
+    ->will($this->$4`!p snip.rv=php.complete(t[4], ['returnValue(', 'returnArgument(', 'returnValueMap(', 'returnCallback(', 'onConsecutiveCalls('])`$5));
+endsnippet
