@@ -87,7 +87,7 @@ if [ "$test" = "" ]; then
       /bin/rm -f $HOME/agent.sh
    fi;
    # start a new agent
-   /usr/bin/ssh-agent | /usr/bin/grep -v echo >&$HOME/agent.sh 
+   /usr/bin/ssh-agent | /bin/grep -v echo >&$HOME/agent.sh 
 fi;
 
 test -e $HOME/agent.sh && source $HOME/agent.sh
