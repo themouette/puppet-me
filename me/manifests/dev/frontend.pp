@@ -15,7 +15,7 @@ class me::dev::frontend {
     }
   }
 
-  include nodejs
+  class { 'nodejs': }
 
   # a bunch of tools required
   package {
@@ -114,6 +114,7 @@ class me::dev::frontend {
 
   # pathogen repositories
   # =====================
+  include me::dev::vim::tern
   # jshint
   vcsrepo { "/home/${me::username}/.vim/bundle/jshint":
     ensure   => present,

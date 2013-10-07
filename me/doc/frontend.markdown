@@ -12,15 +12,13 @@ include me::dev::frontend
 
 ## installed tools
 
-* grunt: a javascript command line utility
-* grunt-requirejs: compile requirejs scripts
-* grunt-less: compile lesscss scripts
 * jshint: javascript linter
 * jsctags: javascript ctags generator (doctor.js)
 * zencoding: html completer
 
 ## vim integration
 
+* [`tern_for_vim`](https://github.com/marijnh/tern_for_vim) for [`tern`](http://ternjs.net/) integration.
 * [`walm/jshint.vim`](https://github.com/walm/jshint.vim) provides jshint integration
 
 _Add a specific ft for all files in your project_
