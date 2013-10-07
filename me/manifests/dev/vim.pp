@@ -132,7 +132,7 @@ class me::dev::vim {
     source   => 'git://github.com/majutsushi/tagbar.git',
     require  => File['pathogen'],
   }
-  # vim powerline
+  # vim ack
   vcsrepo { "/home/${me::username}/.vim/bundle/vim-ack":
     ensure   => present,
     provider => git,
