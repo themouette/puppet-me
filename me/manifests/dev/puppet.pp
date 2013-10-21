@@ -13,5 +13,5 @@ class me::dev::puppet {
     provider => 'gem',
   }
 
-  require => Class['me::dev'],
+  include me::dev
 }
