@@ -176,7 +176,7 @@ function! StripTrailingWhitespace()
     endif
     normal `Z
 endfunction
-autocmd BufWritePre *.md,*.markdown,*.mkd,*.php,*.yml,*.xml,*.js,*.html,*.css,*.java,*.c,*.cpp,*.vim :call StripTrailingWhitespace()
+autocmd BufWritePre *.md,*.markdown,*.mkd,*.yml,*.xml,*.js,*.html,*.css,*.java,*.c,*.cpp,*.vim :call StripTrailingWhitespace()
 
 " tab mappings
 map <leader>tp :tabprevious<cr>

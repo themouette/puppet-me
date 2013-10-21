@@ -6,6 +6,9 @@ set tags+=vendor.tags
 " make launch unittests
 set makeprg=phpunit\ %
 
+" Auto remove tailing spaces
+autocmd BufWritePre *.php :call StripTrailingWhitespace()
+
 " insert naespaces
 imap <buffer> <Leader>u <C-O>:call PhpInsertUse()<CR>
 map <buffer> <Leader>u :call PhpInsertUse()<CR>
