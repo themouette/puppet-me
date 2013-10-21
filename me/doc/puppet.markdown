@@ -12,7 +12,12 @@ include me::dev::puppet
 
 ## vim integration
 
-`vim-puppet` package is included to provide puppet syntax highlight
+* [`vim-puppet`](https://github.com/rodjek/vim-puppet) is used to provide
+  puppet syntax highlight
+ 
+## binding
+
+* `<C-l>`: lint current file
 
 ## linter
 

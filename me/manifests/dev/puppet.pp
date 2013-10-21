@@ -3,9 +3,23 @@
 
 class me::dev::puppet {
 
-  package { 'vim-puppet':
+  # puppet syntax highlight
+  vcsrepo { "/home/${me::username}/.vim/bundle/vim-puppet":
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/rodjek/vim-puppet.git',
+    owner    => $me::username,
+    group    => $me::username,
+    require  => File['pathogen'],
+  }
+
+  # puppet.vim: bind extra filetypes
+  file { "/home/${me::username}/.vim/ftplugin/puppet.vim":
     ensure  => present,
-    require => Class['me::dev']
+    source  => 'puppet:///modules/me/vim/ftplugin/puppet.vim',
+    owner   => $me::username,
+    group   => $me::username,
+    require => File["/home/${me::username}/.vim/plugin"]
   }
 
   package { 'puppet-lint':
