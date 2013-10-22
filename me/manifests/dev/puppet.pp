@@ -14,17 +14,32 @@ class me::dev::puppet {
   }
 
   # puppet.vim: bind extra filetypes
-  file { "/home/${me::username}/.vim/ftplugin/puppet.vim":
+  file {
+  "/home/${me::username}/.vim/ftplugin/puppet.vim":
     ensure  => present,
     source  => 'puppet:///modules/me/vim/ftplugin/puppet.vim',
     owner   => $me::username,
     group   => $me::username,
     require => File["/home/${me::username}/.vim/plugin"]
+    ;
+  "/home/${me::username}/.puppet/module"
+    ensure  => directory,
+    owner   => $me::username,
+    group   => $me::username,
+    recurse => true,
   }
 
-  package { 'puppet-lint':
+  package {
+  'puppet-lint':
     ensure   => 'installed',
     provider => 'gem',
+    ;
+  'ruby-full':
+    ensure   => 'installed',
+    ;
+  'libxslt-dev':
+    ensure   => 'installed',
+    ;
   }
 
   include me::dev
