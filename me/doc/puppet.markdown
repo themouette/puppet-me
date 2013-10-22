@@ -26,3 +26,8 @@ include me::dev::puppet
 ``` bash
 $ puppet-lint --with-filename /path/to/modules/or/file
 ```
+
+## Snippets
+
+* `class`: create a new puppet class, with doc in the header
+* `::params`: create a parameter class

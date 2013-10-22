@@ -22,6 +22,13 @@ class me::dev::puppet {
     group   => $me::username,
     require => File["/home/${me::username}/.vim/plugin"]
     ;
+  "/home/${me::username}/.vim/UltiSnips/puppet.snippets":
+    ensure  => present,
+    source  => 'puppet:///modules/me/vim/UltiSnips/puppet.snippets',
+    owner   => $me::username,
+    group   => $me::username,
+    require => File["/home/${me::username}/.vim/UltiSnips"]
+    ;
   "/home/${me::username}/.puppet/module"
     ensure  => directory,
     owner   => $me::username,
