@@ -28,7 +28,7 @@ add the following line in your `Vagrantfile`
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "site.pp"
-    puppet.module_path => [
+    puppet.module_path = [
         "/home/julien/puppet/modules"
     ]
   end
