@@ -29,7 +29,7 @@ class me::dev::puppet {
     group   => $me::username,
     require => File["/home/${me::username}/.vim/UltiSnips"]
     ;
-  "/home/${me::username}/.puppet/module"
+  "/home/${me::username}/.puppet/module":
     ensure  => directory,
     owner   => $me::username,
     group   => $me::username,
