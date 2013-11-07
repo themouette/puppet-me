@@ -219,7 +219,7 @@ map <leader>m :make<cr>
 " disabled by default
 let g:gitgutter_enabled = 0
 " binds F3 to toggle git gutter
-nmap <buffer> <F3> :ToggleGitGutter<CR>
+nmap <buffer> <F3> :GitGutterToggle<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
