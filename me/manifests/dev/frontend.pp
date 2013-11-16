@@ -47,8 +47,8 @@ class me::dev::frontend {
     ];
   }
 
-  # vim configuration
   file {
+  # vim configuration
   "/home/${me::username}/.vim/UltiSnips/backbone.snippets":
     ensure   => present,
     source   => 'puppet:///modules/me/vim/UltiSnips/backbone.snippets',
@@ -84,6 +84,13 @@ class me::dev::frontend {
     group   => $me::username,
     mode    => '0775',
     require  => File['pathogen'];
+  # extra configuration
+  "/home/${me::username}/.npmrc":
+    ensure   => present,
+    source   => 'puppet:///modules/me/dotfiles/.npmrc',
+    owner   => $me::username,
+    group   => $me::username,
+    mode    => '0775',
   }
 
   # install closure linter

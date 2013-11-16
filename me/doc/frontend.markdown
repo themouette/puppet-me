@@ -15,6 +15,7 @@ include me::dev::frontend
 * jshint: javascript linter
 * jsctags: javascript ctags generator (doctor.js)
 * zencoding: html completer
+* registry.npmjs.eu: europe npm registry
 
 ## vim integration
 
@@ -23,7 +24,7 @@ include me::dev::frontend
 
 _Add a specific ft for all files in your project_
 
-```!puppet
+```!vim
 au BufNewFile,BufRead */PROJECT_HOME/*.js set filetype=javascript.backbone
 au BufNewFile,BufRead */PROJECT_HOME/**/tests/*.js set filetype=javascript.qunit
 ```
