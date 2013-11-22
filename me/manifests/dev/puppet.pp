@@ -2,6 +2,7 @@
 # simply add `include me::dev::puppet` to your manifest
 
 class me::dev::puppet {
+  include me::dev::ruby
 
   # puppet syntax highlight
   vcsrepo { "/home/${me::username}/.vim/bundle/vim-puppet":
