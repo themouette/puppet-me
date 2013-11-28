@@ -42,6 +42,7 @@ add the following line in your `Vagrantfile`
 * markdown syntax highlight
 * [git integration](https://github.com/themouette/puppet-me/blob/master/me/doc/git.markdown)
 * [ruby](https://github.com/themouette/puppet-me/blob/master/me/doc/ruby.markdown)
+* [python](https://github.com/themouette/puppet-me/blob/master/me/doc/python.markdown)
 
 ## pimp your bash
 
