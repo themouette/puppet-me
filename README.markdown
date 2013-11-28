@@ -17,6 +17,12 @@ Then link your .ssh folder under `me/files/ssh`
 $ ln -s /home/julien/.ssh/ ~/puppet/modules/me/files/ssh
 ```
 
+## Provision
+
+``` sh
+$ puppet apply --modulepath=~/.puppet/modules -e "include me, me::dev, me::dev::ruby, me::dev::python"
+```
+
 ## include in your vagrant file
 
 add the following line in your `Vagrantfile`
