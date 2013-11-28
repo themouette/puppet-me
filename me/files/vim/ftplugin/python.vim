@@ -7,3 +7,6 @@ autocmd BufWritePre *.py :call StripTrailingWhitespace()
 
 " Activate python auto-complete
 set omnifunc=pythoncomplete#Complete
+
+" Pylint linter
+nmap <buffer> <C-l> :!/usr/bin/pylint %<CR>

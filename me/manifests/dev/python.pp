@@ -25,6 +25,18 @@ class me::dev::python {
     require     => File['pathogen']
   }
 
+  package { 'pylint':
+    ensure => 'installed'
+  }
+
+  #  vcsrepo { "/home/${me::username}/.vim/bundle/pylint.vim":
+  #    ensure   => present,
+  #    provider => git,
+  #    user     => $me::username,
+  #    source   => 'git://github.com/vim-scripts/pylint.vim.git',
+  #    require  => File['pathogen'],
+  #  }
+
   file {
     "/home/${me::username}/.vim/ftplugin/python.vim":
       ensure  => present,

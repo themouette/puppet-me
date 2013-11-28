@@ -12,13 +12,14 @@ include me::dev::python
 
 ## installed tools
 
-N/A
+* [pylint](http://www.pylint.org/)
 
 ## vim integration
 
 * [pythoncomplete](http://www.vim.org/scripts/script.php?script_id=1542) python
   omni completion
+* [pylint.vim](https://github.com/vim-scripts/pylint.vim) linter
 
 ## binding
 
-N/A
+* `<C-l>`: lint current file
