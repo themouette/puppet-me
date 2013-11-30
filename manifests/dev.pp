@@ -3,6 +3,11 @@
 # but none is included by default.
 
 class me::dev {
-  include me::dev::vim, me::dev::git, me::misc
+  include me::dev::git, me::misc
+
+  if $::me::params::vim {
+    include me::dev::vim
+  }
+
 }
 
