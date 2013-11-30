@@ -14,7 +14,7 @@ It's as easy as `git clone git@server:puppet-me.git ~/puppet/modules`
 Then link your .ssh folder under `me/files/ssh`
 
 ``` sh
-$ ln -s /home/julien/.ssh/ ~/puppet/modules/me/files/ssh
+$ ln -s /home/julien/.ssh/ ~/puppet/modules/files/ssh
 ```
 
 ## Provision
@@ -42,13 +42,13 @@ add the following line in your `Vagrantfile`
 
 ## available dev environments
 
-* [puppet](https://github.com/themouette/puppet-me/blob/master/me/doc/puppet.markdown)
-* [php](https://github.com/themouette/puppet-me/blob/master/me/doc/php.markdown)
-* [frontend](https://github.com/themouette/puppet-me/blob/master/me/doc/frontend.markdown)
+* [puppet](https://github.com/themouette/puppet-me/blob/master/doc/puppet.markdown)
+* [php](https://github.com/themouette/puppet-me/blob/master/doc/php.markdown)
+* [frontend](https://github.com/themouette/puppet-me/blob/master/doc/frontend.markdown)
 * markdown syntax highlight
-* [git integration](https://github.com/themouette/puppet-me/blob/master/me/doc/git.markdown)
-* [ruby](https://github.com/themouette/puppet-me/blob/master/me/doc/ruby.markdown)
-* [python](https://github.com/themouette/puppet-me/blob/master/me/doc/python.markdown)
+* [git integration](https://github.com/themouette/puppet-me/blob/master/doc/git.markdown)
+* [ruby](https://github.com/themouette/puppet-me/blob/master/doc/ruby.markdown)
+* [python](https://github.com/themouette/puppet-me/blob/master/doc/python.markdown)
 
 ## pimp your bash
 
