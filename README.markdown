@@ -9,18 +9,18 @@ There is 2 main parts :
 
 ## install
 
-It's as easy as `git clone git@server:puppet-me.git ~/puppet/modules`
+It's as easy as `git clone https://github.com/themouette/puppet-me.git ~/puppet/modules/me`
 
-Then link your .ssh folder under `me/files/ssh`
+Then link your .ssh folder under `me/files/ssh` and install dependencies
 
 ``` sh
-$ ln -s /home/julien/.ssh/ ~/puppet/modules/files/ssh
+$ ~/puppet/modules/me/bin/bootstrap.sh
 ```
 
 ## Provision
 
 ``` sh
-$ puppet apply --modulepath=~/.puppet/modules -e "include me, me::dev, me::dev::ruby, me::dev::python"
+$ puppet apply -e "include me, me::dev, me::dev::ruby, me::dev::python"
 ```
 
 ## include in your vagrant file
@@ -29,7 +29,7 @@ add the following line in your `Vagrantfile`
 
 ``` ruby
   # Run a shell script to initialize the VM
-  config.vm.provision :shell, :path => "/home/julien/puppet/modules/bootstrap.sh"
+  config.vm.provision :shell, :path => "/home/julien/.puppet/modules/me/bin/puppet.sh"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
