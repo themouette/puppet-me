@@ -18,17 +18,41 @@ define me::dev::vim::file (
 
   $_filename = "${::me::params::vim_home}/${name}"
 
-  $_source   = $source ? {
-    undef   => "puppet:///modules/me/vim/${name}",
-    default => $source,
-  }
+  case $provider {
 
-  file{ $_filename :
-    ensure   => present,
-    source   => $_source,
-    owner    => $::me::params::username,
-    group    => $::me::params::username,
-    mode     => '0775',
-    require  => File['pathogen'];
-  }
+    'file': {
+
+        $_source   = $source ? {
+          undef   => "puppet:///modules/me/vim/${name}",
+          default => $source,
+        }
+
+        file{ $_filename :
+          ensure   => present,
+          source   => $_source,
+          owner    => $::me::params::username,
+          group    => $::me::params::username,
+          mode     => '0775',
+          require  => File['pathogen'];
+        }
+      }
+    'template': {
+
+        $content  = $source ? {
+          undef   => template("me/vim/${name}.erb"),
+          default => $source,
+        }
+
+        file{ $_filename :
+            ensure  => present,
+            content => $content,
+            owner   => $me::params::username,
+            group   => $me::params::username,
+            mode    => '0775',
+            require => [ File['pathogen'] ];
+
+        }
+      }
+
+      default: { fail("Unknown provider ${provider} for me::dev::vim::file") }
 }
