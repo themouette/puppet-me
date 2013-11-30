@@ -71,7 +71,9 @@ class me::dev::vim {
 
   # Copy vim config files
   me::dev::vim::file {
-    'plugin/me.vim': ;
+    'plugin/me.vim':
+      provider => 'template'
+      ;
     'ftplugin/markdown.vim': ;
     # python helpers for snippets
     'autoload/snippets.vim': ; 'python': ;
