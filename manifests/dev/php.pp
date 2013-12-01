@@ -3,149 +3,55 @@
 
 class me::dev::php {
 
+  include me::params
   include me::dev
 
-  # specfic bingings and configuration
-  file { "/home/${me::username}/.vim/ftplugin/php.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/ftplugin/php.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/ftplugin"]
+  me::dev::vim::file {
+    # specfic bingings and configuration
+    'ftplugin/php.vim': ;
+    # related filetypes
+    # =================
+    # php.vim: bind extra filetypes
+    'plugin/php.vim': ;
+    'ftdetect/php.vim': ;
+    # twig configuration
+    'ftplugin/twig.vim': ;
+    # twig syntax highlight
+    'syntax/twig.vim': ;
+    # sf14 compatibility layer
+    'ftplugin/symfony14.vim': ;
+    # php autocompletion
+    'syntax/php.api': ;
+    # debugger
+    'plugin/php-debugger.py': ;
+    'plugin/php-debugger.vim': ;
+    # snippets
+    'UltiSnips/php.snippets': ;
+    'UltiSnips/phpunit.snippets': ;
+    'UltiSnips/sf2class.snippets': ;
   }
 
-  # related filetypes
-  # =================
-  # php.vim: bind extra filetypes
-  file { "/home/${me::username}/.vim/plugin/php.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/plugin/php.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/plugin"]
-  }
-  file { "/home/${me::username}/.vim/ftdetect/php.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/ftdetect/php.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/ftdetect"]
-  }
-  # twig configuration
-  file { "/home/${me::username}/.vim/ftplugin/twig.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/ftplugin/twig.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/ftplugin"]
-  }
-  # sf14 compatibility layer
-  file { "/home/${me::username}/.vim/ftplugin/symfony14.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/ftplugin/symfony14.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/syntax"]
-  }
-
-  # syntax highlights
-  # =================
-  # php syntax highlight
-  vcsrepo { "/home/${me::username}/.vim/bundle/php":
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/StanAngeloff/php.vim.git',
-    owner    => $me::username,
-    group    => $me::username,
-    require  => File['pathogen'],
-  }
-  # twig syntax highlight
-  file { "/home/${me::username}/.vim/syntax/twig.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/syntax/twig.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/syntax"]
-  }
-  # php autocompletion
-  file { "/home/${me::username}/.vim/syntax/php.api":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/syntax/php.api',
-    owner   => $me::username,
-    group   => $me::username,
-    require => File["/home/${me::username}/.vim/syntax"]
-  }
-
-  # plugins
-  # =======
-  # behat plugin
-  vcsrepo { "/home/${me::username}/.vim/bundle/php-behat":
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/veloce/vim-behat.git',
-    user     => $me::username,
-    require  => File['pathogen'],
-  }
-  # namespace ease plugin
-  vcsrepo { "/home/${me::username}/.vim/bundle/php-namespace":
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/arnaud-lb/vim-php-namespace.git',
-    user     => $me::username,
-    require  => File['pathogen'],
-  }
-  # phpunit plugin
-  vcsrepo { "/home/${me::username}/.vim/bundle/php-unit":
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/docteurklein/vim-phpunit.git',
-    user     => $me::username,
-    require  => File['pathogen'],
-  }
-  # symfony plugin
-  vcsrepo { "/home/${me::username}/.vim/bundle/php-symfony":
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/docteurklein/vim-symfony.git',
-    user     => $me::username,
-    require  => File['pathogen'],
-  }
-  # debugger
-  file { "/home/${me::username}/.vim/plugin/php-debugger.py":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/plugin/php-debugger.py',
-    owner   => $me::username,
-    group   => $me::username,
-    require  => File['pathogen'];
-  }
-  file { "/home/${me::username}/.vim/plugin/php-debugger.vim":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/plugin/php-debugger.vim',
-    owner   => $me::username,
-    group   => $me::username,
-    require  => File['pathogen'];
-  }
-  # snippets
-  file { "/home/${me::username}/.vim/UltiSnips/php.snippets":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/UltiSnips/php.snippets',
-    owner   => $me::username,
-    group   => $me::username,
-    require  => File['pathogen'];
-  }
-  file { "/home/${me::username}/.vim/UltiSnips/phpunit.snippets":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/UltiSnips/phpunit.snippets',
-    owner   => $me::username,
-    group   => $me::username,
-    require  => File['pathogen'];
-  }
-  file { "/home/${me::username}/.vim/UltiSnips/sf2class.snippets":
-    ensure  => present,
-    source  => 'puppet:///modules/me/vim/UltiSnips/sf2class.snippets',
-    owner   => $me::username,
-    group   => $me::username,
-    require  => File['pathogen'];
+  me::dev::vim::bundle {
+    # php syntax highlight
+    'php':
+      source => 'git://github.com/StanAngeloff/php.vim.git',
+      ;
+    # behat plugin
+    'php-behat':
+      source => 'git://github.com/veloce/vim-behat.git',
+      ;
+    # namespace ease plugin
+    'php-namespace':
+      source => 'git://github.com/arnaud-lb/vim-php-namespace.git',
+      ;
+    # phpunit plugin
+    'php-unit':
+      source => 'git://github.com/docteurklein/vim-phpunit.git'
+      ;
+    # symfony plugin
+    'php-symfony':
+      source => 'git://github.com/docteurklein/vim-symfony.git',
+      ;
   }
 
   # Packages
