@@ -15,10 +15,10 @@ class me::dev::git {
     }
   }
 
-  file { "/home/${me::username}/.gitconfig":
+  file { "${::me::params::home}/.gitconfig":
     content => template('me/dotfiles/gitconfig.erb'),
-    owner   => $me::username,
-    group   => $me::username,
+    owner   => $::me::params::username,
+    group   => $::me::params::username,
     mode    => '0755',
     require => Class['me::user'],
   }
@@ -26,12 +26,12 @@ class me::dev::git {
   # vim integration
   # ===============
 
-  # git gutter
-  vcsrepo { "/home/${me::username}/.vim/bundle/vim-gitgutter":
-    ensure   => present,
-    provider => git,
-    user     => $me::username,
-    source   => 'git://github.com/airblade/vim-gitgutter.git',
-    require  => File['pathogen'],
+  if $::me::params::vim {
+
+    me::dev::vim::bundle {
+      'vim-gitgutter':
+        source => 'git://github.com/airblade/vim-gitgutter.git',
+        ;
+    }
   }
 }
