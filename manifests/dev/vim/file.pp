@@ -55,4 +55,5 @@ define me::dev::vim::file (
       }
 
       default: { fail("Unknown provider ${provider} for me::dev::vim::file") }
+  }
 }
