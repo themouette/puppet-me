@@ -127,6 +127,16 @@ colorscheme solarized
 " Powerline
 "let g:Powerline_symbols = 'fancy'
 
+" airline
+" -------
+"
+" If there is a problem with powerline fancy fonts, type the following in console
+"
+" gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono for Powerline 13'
+"
+" source: http://blog.vanutsteen.nl/2013/02/06/set-the-ubuntu-mono-patched-powerline-font-as-system-font-in-ubuntu/
+let g:airline_powerline_fonts = 1
+
 " Ctags
 set nocp
 set tags=tags
