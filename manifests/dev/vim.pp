@@ -1,5 +1,8 @@
 # ensure vim installed with pathogen and other stuff
 class me::dev::vim {
+
+  include ::me::params
+
   $packagename = $::operatingsystem ? {
       /(Ubuntu|Debian)/ => 'vim-nox',
   }
