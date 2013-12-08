@@ -132,7 +132,7 @@ function link_ssh {
     if [ ! -e "$MODULEPATH/me/files/ssh" ]
     then
         log "Link local module into puppet module path."
-        ln -s $HOME/.ssh "$DIR/me/files/ssh"
+        ln -s $HOME/.ssh "$DIR/files/ssh"
     fi
 }
 
