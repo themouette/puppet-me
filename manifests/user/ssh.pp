@@ -73,4 +73,17 @@ class me::user::ssh {
     require => File["${::me::params::home}/.ssh"],
   }
 
+  # known hosts are shared too
+  # ==========================
+  file{ "${::me::params::home}/.ssh/authorized_keys":
+    ensure  => present,
+    source  => 'puppet:///modules/me/ssh/id_rsa.pub',
+    replace => no,
+    links   => follow,
+    owner   => $::me::params::username,
+    group   => $::me::params::username,
+    mode    => '0644',
+    require => File["${::me::params::home}/.ssh"],
+  }
+
 }
