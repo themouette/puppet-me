@@ -93,3 +93,5 @@ fi;
 test -e $HOME/agent.sh && source $HOME/agent.sh
 
 alias kagent="kill -9 $SSH_AGENT_PID"
+
+export PATH="./node_modules/.bin:$PATH"
