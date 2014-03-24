@@ -11,11 +11,25 @@ class me::misc {
       ensure => present
     }
   }
+  # Server monitoring
+  #
+  # @see http://aarvik.dk/four-linux-server-monitoring-and-management-tools/
   if !defined(Package['htop']) {
     package{ 'htop':
       ensure => present
     }
   }
+  if !defined(Package['iotop']) {
+    package{ 'iotop':
+      ensure => present
+    }
+  }
+  if !defined(Package['glances']) {
+    package{ 'glances':
+      ensure => present
+    }
+  }
+
   if !defined(Package['ncmpc']) {
     package{ 'ncmpc':
       ensure => present
