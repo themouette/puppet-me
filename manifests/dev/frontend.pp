@@ -23,6 +23,8 @@ class me::dev::frontend {
     me::dev::vim::snippets {
       'backbone': ;
       'qunit': ;
+      'html': ;
+      'javascript': ;
     }
     me::dev::vim::file {
       'ftdetect/javascript.vim': ;
