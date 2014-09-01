@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Add local npm binaries to path.
+export PATH="./node_modules/.bin:$PATH"

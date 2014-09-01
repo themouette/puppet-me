@@ -9,6 +9,11 @@ class me::user {
   }
 
   file {
+  "/home/${me::username}/.bashrc.d":
+    ensure => directory,
+    owner  => $me::username,
+    group  => $me::username,
+    mode   => '0755';
   "/home/${me::username}/.bash_logout":
     source => 'puppet:///modules/me/bash/bash_logout',
     owner  => $me::username,
