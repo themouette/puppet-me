@@ -71,6 +71,12 @@ function check_deps {
         log "Install bundler."
         sudo gem install bundler
     fi
+
+    if [ -z "$(which puppet)" ]; then
+        error "⚠ Puppet must be installed.\nUse 'PUPPET_VERSION=2.7.25 DISTRIBUTION=saucy bin/puppet.sh'"
+        error "List of available releases at http://apt.puppetlabs.com/"
+        exit 1;
+    fi
 }
 
 function install_gem {
