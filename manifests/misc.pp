@@ -79,8 +79,12 @@ class me::misc {
       ensure => present
     }
   }
-  package {'localtunnel':
-    ensure   => present,
-    provider => 'gem'
-  }
+# Install localtunnel
+# localtunnel is deprecated. Need a way to automate ngrok install
+# see https://ngrok.com/
+#
+#  package {'localtunnel':
+#    ensure   => present,
+#    provider => 'gem'
+#  }
 }
