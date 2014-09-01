@@ -29,6 +29,8 @@ class me::dev::php {
     'UltiSnips/php.snippets': ;
     'UltiSnips/phpunit.snippets': ;
     'UltiSnips/sf2class.snippets': ;
+    'python/helpers/__init__.py': ;
+    'python/helpers/php.py': ;
   }
 
   me::dev::vim::bundle {
