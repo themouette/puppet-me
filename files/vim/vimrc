@@ -224,19 +224,6 @@ au! BufRead,BufNewFile *.rst set filetype=rst
 " make
 map <leader>m :make<cr>
 
-" gitgutter
-" https://github.com/airblade/vim-gitgutter
-" disabled by default
-let g:gitgutter_enabled = 0
-" binds F3 to toggle git gutter
-nmap <buffer> <F3> :GitGutterToggle<CR>
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-py import sys; sys.path.append("/home/julien/.vim/python")
-
 " tmux key binding
 " thanks to http://stackoverflow.com/questions/15445481/mapping-arrow-keys-when-running-tmux
 if &term =~ '^screen' && exists('$TMUX')

@@ -33,5 +33,8 @@ class me::dev::git {
         source => 'git://github.com/airblade/vim-gitgutter.git',
         ;
     }
+    me::dev::vim::file {
+      'plugin/git.vim': ;
+    }
   }
 }

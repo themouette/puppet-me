@@ -79,6 +79,7 @@ class me::dev::vim {
     'plugin/me.vim':
       provider => 'template'
       ;
+    'plugin/snippets.vim': ;
     'ftplugin/markdown.vim': ;
     'autoload/snippets.vim': ;
     # python helpers for snippets
