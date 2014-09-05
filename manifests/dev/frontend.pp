@@ -5,15 +5,30 @@ class me::dev::frontend {
   include me::params
   include me::dev::vim
 
-  class { 'nodejs': }
+  class { 'nodejs':
+    require => File["/home/${me::username}/.npm-packages"],
+  }
   # extra configuration
   file {
+  "/home/${me::username}/.npm-packages":
+    ensure   => directory,
+    owner    => $::me::params::username,
+    group    => $::me::params::username,
+    mode     => '0775';
   "/home/${me::username}/.npmrc":
     ensure   => present,
     source   => 'puppet:///modules/me/dotfiles/.npmrc',
     owner    => $::me::params::username,
     group    => $::me::params::username,
+    mode     => '0775';
+  #
+  "/home/${me::username}/.bashrc.d/node":
+    ensure   => present,
+    source   => 'puppet:///modules/me/bash/bashrc.d/node',
+    owner    => $::me::params::username,
+    group    => $::me::params::username,
     mode     => '0775',
+    require => File["/home/${me::username}/.bashrc.d"];
   }
 
   include me::dev::frontend::jshint
@@ -30,6 +45,7 @@ class me::dev::frontend {
       'ftdetect/javascript.vim': ;
       'ftplugin/javascript.vim': ;
       'plugin/frontend.vim': ;
+      'python/helpers/javascript.py': ;
     }
     me::dev::vim::bundle{
       # javascript syntax
@@ -52,8 +68,8 @@ class me::dev::frontend {
       # javascript indent
       # http://www.vim.org/scripts/script.php?script_id=3081
       'web-indent':
-        provider  => 'tgz',
-        source    => '15643',
+        provider => 'tgz',
+        source   => '15643',
     }
   }
 

@@ -17,6 +17,10 @@ include me::dev::frontend
 * zencoding: html completer
 * registry.npmjs.eu: europe npm registry
 
+Note that global npm packages are intalled in `~/.npm-packages`. Therefore, sudo
+is not required when installing packages globaly. This relies on [Sindre
+Sorhus's guide](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo-linux.md)
+
 ## vim integration
 
 * [`tern_for_vim`](https://github.com/marijnh/tern_for_vim) for [`tern`](http://ternjs.net/) integration.

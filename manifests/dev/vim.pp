@@ -44,6 +44,7 @@ class me::dev::vim {
   "${::me::params::home}/.vim/ftdetect",
   "${::me::params::home}/.vim/snippets",
   "${::me::params::home}/.vim/UltiSnips",
+  "${::me::params::home}/.vim/python/helpers",
     ]:
     ensure  => directory,
     owner   => $::me::params::username,
@@ -69,6 +70,7 @@ class me::dev::vim {
         File["${::me::params::home}/.vim/ftdetect"],
         File["${::me::params::home}/.vim/snippets"],
         File["${::me::params::home}/.vim/UltiSnips"],
+        File["${::me::params::home}/.vim/python/helpers"],
     ];
   }
 
@@ -78,8 +80,9 @@ class me::dev::vim {
       provider => 'template'
       ;
     'ftplugin/markdown.vim': ;
+    'autoload/snippets.vim': ;
     # python helpers for snippets
-    'autoload/snippets.vim': ; 'python': ;
+    'python/helpers/__init__.py': ;
   }
 
   # general purpose vim bundles
@@ -96,6 +99,10 @@ class me::dev::vim {
     # UltiSnips
     'ultisnips':
       source => 'git://github.com/SirVer/ultisnips.git',
+      ;
+    # UltiSnips
+    'vim-snippets':
+      source => 'git://github.com/honza/vim-snippets.git',
       ;
     # TagBar
     'tagbar':
