@@ -15,7 +15,7 @@ include me::dev::frontend
 * jshint: javascript linter
 * jsctags: javascript ctags generator (doctor.js)
 * zencoding: html completer
-* registry.npmjs.eu: europe npm registry
+* registry.npmjs.eu: europe npm registry. Activate it in ~/.npmrc
 
 Note that global npm packages are intalled in `~/.npm-packages`. Therefore, sudo
 is not required when installing packages globaly. This relies on [Sindre
