@@ -50,3 +50,7 @@ if type -P tmux >/dev/null; then
 fi
 
 alias my_ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# git section
+alias gst="git status"
+alias gti="git"
