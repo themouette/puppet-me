@@ -44,6 +44,7 @@ class me::dev::vim {
   "${::me::params::home}/.vim/ftdetect",
   "${::me::params::home}/.vim/snippets",
   "${::me::params::home}/.vim/UltiSnips",
+  "${::me::params::home}/.vim/python",
   "${::me::params::home}/.vim/python/helpers",
     ]:
     ensure  => directory,
