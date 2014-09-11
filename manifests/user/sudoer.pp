@@ -11,7 +11,7 @@ class me::user::sudoer {
 
   file { 'sudoer.d':
     ensure => directory,
-    path   => '/etc/sudoer.d',
+    path   => '/etc/sudoers.d',
     owner  => 'root',
     group  => 'root',
     mode   => '0440',
