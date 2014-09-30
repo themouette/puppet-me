@@ -33,6 +33,13 @@ class me::dev::frontend {
 
   include me::dev::frontend::jshint
 
+  package {
+  'scss-lint':
+    ensure   => 'installed',
+    provider => 'gem',
+    ;
+  }
+
   if $::me::params::vim {
 
     me::dev::vim::snippets {
@@ -44,6 +51,7 @@ class me::dev::frontend {
     me::dev::vim::file {
       'ftdetect/javascript.vim': ;
       'ftplugin/javascript.vim': ;
+      'ftplugin/scss.vim': ;
       'plugin/frontend.vim': ;
       'python/helpers/javascript.py': ;
     }

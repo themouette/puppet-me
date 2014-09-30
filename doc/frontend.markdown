@@ -16,6 +16,7 @@ include me::dev::frontend
 * jsctags: javascript ctags generator (doctor.js)
 * zencoding: html completer
 * registry.npmjs.eu: europe npm registry. Activate it in ~/.npmrc
+* [scss-lint](https://github.com/causes/scss-lint) provide sass files linting
 
 Note that global npm packages are intalled in `~/.npm-packages`. Therefore, sudo
 is not required when installing packages globaly. This relies on [Sindre
@@ -47,6 +48,12 @@ Any jquery.*.js file has jquery filetype. Up to now this does nothing.
 
 ## binding
 
+### Javascript
+
 * `<C-l>`: use jshint to lint current file
 * `<F8>`: open tagbar
 * `<C-e>,`: zend coding completion
+
+### Scss
+
+* `<C-l>`: use scss-lint to lint current file
