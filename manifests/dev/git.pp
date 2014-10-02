@@ -35,6 +35,7 @@ class me::dev::git {
     }
     me::dev::vim::file {
       'plugin/git.vim': ;
+      'ftplugin/gitcommit.vim': ;
     }
   }
 }
