@@ -136,6 +136,7 @@ colorscheme solarized
 "
 " source: http://blog.vanutsteen.nl/2013/02/06/set-the-ubuntu-mono-patched-powerline-font-as-system-font-in-ubuntu/
 let g:airline_powerline_fonts = 1
+let g:airline_theme='badwolf'
 
 " Ctags
 set nocp
