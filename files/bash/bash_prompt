@@ -67,6 +67,11 @@ function set_git_branch {
 
   # Set the final branch string.
   BRANCH="${LIGHT_GRAY}on ${GREEN}${branch}${state}${remote}${COLOR_NONE}"
+
+  # Or use git-script https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+  # export GIT_PS1_SHOWDIRTYSTATE=0 GIT_PS1_SHOWSTASHSTATE=0 GIT_PS1_SHOWUNTRACKEDFILES=0
+  # export GIT_PS1_SHOWUPSTREAM=git GIT_PS1_DESCRIBE_STYLE=branch
+  # BRANCH="$(__git_ps1 " (%s)")"
 }
 
 # Determine the branch information for this subversion repository. No support
