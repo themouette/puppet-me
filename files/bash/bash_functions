@@ -115,17 +115,25 @@ toascii() { convert $1 jpg:- | jp2a - --color --fill --background=light --html >
 # usage : galerie
 galerie() 
 {
+  OLDIFS="$IFS"
+  IFS=$'\n' # don't split on any white space
+  DIRECTORY="$1"
+  if [[ -z "$DIRECTORY" ]]; then
+      DIRECTORY="."
+  fi
   echo -e "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1- \
 transitional.dtd\">\n<HTML>\n<head>\n<title>Galerie photo du `date +'%F_%Hh%M'`</title>\n\n<style type=\"text/css\">\nhtml \
 , body {\n\tmargin: 0px;\n\tpadding: 0px;\n\tborder: 0px;\n}\n#main {\n\tmargin: 5px 20px;\n}\ndiv.left {\n\tfloat: left;\n\tmargin \
 -right: 300px;\n\twidth: 400px;\n\tmargin-bottom: 10px;\n}\ndiv.left p {\n\ttext-align: center;\n}\nimg {\n\tborder: 0px none;\n}\ndiv. \
 center {\n\twidth: 600px;\n}\n.clear {\n  clear : both;\n}\n</style>\n</head>\n\n<body>\n<div id=\"main\">\n  <h1>Galerie photo du \
  `date +'%F_%Hh%M'`</h1>\n" > galerie_`date +'%F'`.html;
-  for i in *.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF};
-   do echo -e "\t<div class="left">\n\t\t<a href="http://www.bordel-de-nerd.net/2010/08/configurer-son-terminal-bash/"><img src="http://www.bordel-de-nerd.net/2010/08/configurer-son-terminal-bash/" width="300" height="300" border="0" /></a><br />\n\t\t<p>$i</p>\n\t</div>\n";
-  done >> galerie_`date +'%F'`.html
+  for i in `find $DIRECTORY -regex ".*\.\(jpg\|jpeg\|png\|gif\|JPG\|JPEG\|PNG\|GIF\)"`
+  do
+      echo -e "\t<div class="left">\n\t\t<a href=\"${i}\"><img src=\"${i}\" width="300" height="300" border="0" /></a><br />\n\t\t<p>${i}</p>\n\t</div>\n" >> galerie_`date +'%F'`.html
+  done
   echo -e "</div>\n</body>\n</html>" >> galerie_`date +'%F'`.html
   echo -e "\n${bldgrn}La galerie galerie_`date +'%F'`.html contient les photos du dossier `pwd`."
+  IFS=$OLDIFS # restore IFS
 }
 
 # chext - modifier l'extension 
