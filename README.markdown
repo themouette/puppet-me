@@ -50,6 +50,7 @@ add the following line in your `Vagrantfile`
 * [ruby](https://github.com/themouette/puppet-me/blob/master/doc/ruby.markdown)
 * [python](https://github.com/themouette/puppet-me/blob/master/doc/python.markdown)
 * [perl](https://github.com/themouette/puppet-me/blob/master/doc/perl.markdown)
+* [docker](https://github.com/themouette/puppet-me/blob/master/doc/docker.markdown)
 
 ## pimp your bash
 
