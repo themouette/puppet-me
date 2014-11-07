@@ -1,4 +1,4 @@
-# me::dev::puppet
+# me::dev::perl
 
 include developement tools for perl development
 
